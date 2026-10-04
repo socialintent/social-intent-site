@@ -23,14 +23,16 @@ netlify.toml, src/_redirects   ← hosting config and redirects from the old Wor
 
 ## Hosting it (about an hour, once)
 
-1. Put this folder in a GitHub repository (GitHub Desktop is the easiest way: "Add local repository", then "Publish").
-2. Sign up at [netlify.com](https://www.netlify.com) (free plan is fine) and choose "Import from Git". Pick the repository. Build command `npm run build`, publish directory `_site` are already in `netlify.toml`.
-3. In Netlify: **Site configuration → Identity → Enable Identity**, then **Identity → Services → Enable Git Gateway**. Set registration to "Invite only" and invite yourself (matthew@social-intent.com).
-4. In Netlify: **Forms → Enable form detection**, so the contact form delivers to your inbox. Add your email under **Forms → Notifications**.
-5. Open `https://your-site.netlify.app/admin/`, accept the invite, and you have the editing screen.
-6. When you are ready to go live: **Domain management → Add domain → social-intent.com**, then change the DNS at your registrar to the records Netlify shows you. Netlify adds the HTTPS certificate automatically. The `_redirects` file sends the old WordPress addresses to the new pages so Google rankings and old links keep working.
+The site lives at github.com/SocialIntent/social-intent-site and is published by Netlify (project name `social-intent`, at social-intent.netlify.app until the domain is switched). Every push to the `main` branch rebuilds the site in about a minute. Netlify calls a site a "project" in its menus.
 
-Cloudflare Pages works too, but the `/admin/` editing screen is simplest on Netlify.
+1. **GitHub.** The repository is already there. Changes get in either through the `/admin/` editing screen (which saves to GitHub for you) or by asking Claude to push them.
+2. **Netlify.** Already imported, with build command `npm run build` and publish directory `_site` from `netlify.toml`. New projects start locked to team members: **Project configuration → Access & security → Site protection → Public**.
+3. **Editing screen sign-in (GitHub).** Netlify has deprecated Git Gateway, the old email-invite sign-in, so `/admin/` signs in with your GitHub account instead. One-off setup:
+   - On github.com open the SocialIntent organisation → **Settings → Developer settings → OAuth Apps → New OAuth App**. Name: `Social Intent website admin`. Homepage URL: `https://social-intent.netlify.app`. Authorization callback URL: `https://api.netlify.com/auth/done`. Register it, then **Generate a new client secret**.
+   - In Netlify: **Project configuration → Security → OAuth → Install provider → GitHub**, paste the Client ID and Client secret, save.
+   - Open `/admin/`, click **Login with GitHub**, authorise. Anyone who should edit the site needs a GitHub account with write access to the repository.
+4. **Contact form.** In Netlify: **Forms → Enable form detection**, then **Deploys → Trigger deploy → Deploy project**. Add your email under **Forms → Form notifications**. Free plan: 100 submissions a month.
+5. **Domain.** When ready: **Domain management → Add a domain → social-intent.com**, keeping DNS at Fasthosts. Then at Fasthosts change the A record for `@` to the IP Netlify shows (75.2.60.5 at the time of writing) and `www` to a CNAME for `social-intent.netlify.app`. Leave the MX and TXT records alone: they are Microsoft 365 email. Netlify adds HTTPS itself. The `_redirects` file sends the old WordPress addresses to the new pages so Google rankings and old links keep working.
 
 ## Adding content
 

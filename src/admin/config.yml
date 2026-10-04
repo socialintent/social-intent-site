@@ -1,13 +1,15 @@
 # Decap CMS – a simple editing screen for the site, at /admin/ once hosted on Netlify.
+# Sign-in is with your GitHub account, through the GitHub OAuth provider installed on the Netlify project.
 backend:
-  name: git-gateway
+  name: github
+  repo: SocialIntent/social-intent-site
   branch: main
 
 media_folder: "src/assets/uploads"
 public_folder: "assets/uploads"
-site_url: https://www.social-intent.com
-display_url: https://www.social-intent.com
-logo_url: https://www.social-intent.com/assets/img/si-logo-main-black-yellow.png
+site_url: https://social-intent.netlify.app
+display_url: https://social-intent.netlify.app
+logo_url: https://social-intent.netlify.app/assets/img/si-logo-main-black-yellow.svg
 
 collections:
   - name: insights
