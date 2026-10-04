@@ -1,0 +1,42 @@
+---
+layout: base.njk
+---
+{% set heroEyebrow = client %}
+{% set heroTitle = title %}
+{% set heroLead = summary %}
+{% set heroNote = "case<br>study" %}
+{% set heroCta = false %}{% set heroLink = false %}{% set heroLinkHref = "" %}
+{% include "page-hero.njk" %}
+<article class="block">
+  <div class="wrap article-grid">
+    <div class="prose">
+      {% if facts %}
+      <div class="facts">
+        {% for f in facts %}<div><strong>{{ f.n }}</strong><span>{{ f.label }}</span></div>{% endfor %}
+      </div>
+      {% endif %}
+      {{ content | safe }}
+      {% if quote %}
+      <blockquote>
+        <p>{{ quote }}</p>
+        <cite>{{ quoteBy }}{% if quoteRole %}, {{ quoteRole }}{% endif %}</cite>
+      </blockquote>
+      {% endif %}
+      <div class="btn-row"><a class="btn btn-black" href="{{ root }}assets/downloads/{{ page.fileSlug }}.pdf" target="_blank" rel="noopener">Download this case study (PDF)</a><a class="btn btn-yellow" href="{{ root }}contact.html">Talk to us about a review like this</a></div>
+    </div>
+    <aside class="aside">
+      <h2>At a glance</h2>
+      <dl>
+        <dt>Client</dt><dd>{{ client }}</dd>
+        {% if sector %}<dt>Sector</dt><dd>{{ sector }}</dd>{% endif %}
+        <dt>What we did</dt><dd>{{ services }}</dd>
+        {% if year %}<dt>When</dt><dd>{{ year }}</dd>{% endif %}
+      </dl>
+      <h2>More work</h2>
+      <ul>
+        {% for cs in collections.work %}{% if cs.url != page.url %}<li><a class="arrow-link" href="{{ root }}{{ cs.url | replace('/', '', 1) }}">{{ cs.data.client }}</a></li>{% endif %}{% endfor %}
+      </ul>
+    </aside>
+  </div>
+</article>
+{% include "cta.njk" %}

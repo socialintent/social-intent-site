@@ -1,0 +1,21 @@
+<article class="guide{% if g.data.status != 'available' %} guide-soon{% endif %}">
+  <div class="guide-book" aria-hidden="true"><span>{{ g.data.title }}</span></div>
+  <div class="guide-info">
+    <span class="guide-kind">{{ g.data.kind }} · {{ g.data.pages }} pages</span>
+    <h3>{{ g.data.title }}</h3>
+    <p>{{ g.data.summary }}</p>
+    <p class="small">For {{ g.data.audience }}</p>
+    {% if g.data.status == 'available' %}
+    <span class="guide-price">{{ (g.data.price or site.guidePrice) | money }}<span>or free when you book a call</span></span>
+    <div class="guide-actions">
+      <a class="btn btn-yellow btn-small btn-plain payhip-buy-button" href="{{ g.data.payhip or site.payhipStore }}" data-theme="none" data-product="{{ g.data.payhipId }}" rel="noopener">Buy the PDF</a>
+      <a class="btn btn-ghost btn-small btn-plain" href="{{ site.calendly }}" rel="noopener">Get it with a call</a>
+    </div>
+    {% else %}
+    <span class="tag">Coming soon</span>
+    <div class="guide-actions">
+      <a class="btn btn-ghost btn-small btn-plain" href="mailto:{{ site.email }}?subject=Tell me when '{{ g.data.title }}' is ready">Tell me when it's ready</a>
+    </div>
+    {% endif %}
+  </div>
+</article>

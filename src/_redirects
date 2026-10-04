@@ -1,0 +1,9 @@
+# Old WordPress URLs → new pages (keeps Google rankings and old links working)
+/testimonials/            /work.html            301
+/our-partners-of-choice/  /about.html           301
+/news/                    /insights.html        301
+/can-we-sometimes-be-bolder-in-our-ask/                 /insights/can-we-sometimes-be-bolder-in-our-ask.html  301
+/does-closing-your-retail-shop-costs-you-more-than-you-save/  /insights/does-closing-your-shop-cost-more-than-it-saves.html  301
+/how-big-is-your-social-value-budget/                   /insights/how-big-is-your-social-value-budget.html  301
+/privacy-policy/          /privacy.html         301
+/terms-conditions/        /terms.html           301

@@ -1,0 +1,15 @@
+{# Shared dark page header. Set heroEyebrow, heroTitle, heroLead, heroNote (handwritten), heroCta, heroCtaHref, heroLink, heroLinkHref before including. #}
+<section class="page-hero">
+  <div class="page-hero-rings" aria-hidden="true"><span class="pr pr-1"></span><span class="pr pr-2"></span><span class="pr pr-3"></span>{% if heroNote %}<span class="handwritten pr-note">{{ heroNote | safe }}</span>{% endif %}</div>
+  <div class="wrap page-hero-inner">
+    {% if heroEyebrow %}<p class="eyebrow">{{ heroEyebrow }}</p>{% endif %}
+    <h1>{{ heroTitle | safe }}</h1>
+    {% if heroLead %}<p class="lead">{{ heroLead | safe }}</p>{% endif %}
+    {% if heroCta or heroLink %}
+    <div class="btn-row">
+      {% if heroCta %}<a class="btn btn-yellow" href="{{ heroCtaHref or (root ~ 'contact.html') }}"{% if heroCtaHref and 'http' in heroCtaHref %} rel="noopener"{% endif %}>{{ heroCta }}</a>{% endif %}
+      {% if heroLink %}<a class="btn btn-ghost" href="{{ heroLinkHref }}">{{ heroLink }}</a>{% endif %}
+    </div>
+    {% endif %}
+  </div>
+</section>

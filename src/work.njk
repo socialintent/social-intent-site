@@ -1,0 +1,71 @@
+---
+layout: base.njk
+title: Work
+description: Case studies and testimonials from Social Intent's work with charities, foundations and companies across the UK.
+permalink: work.html
+---
+{% set heroEyebrow = "Work" %}
+{% set heroTitle = "Work we're proud of, in our clients' words <em>and ours.</em>" %}
+{% set heroLead = "Named case studies, published with each client's approval. Where a client prefers not to be named, we don't name them." %}
+{% set heroNote = "in their<br>words" %}
+{% set heroCta = false %}{% set heroLink = false %}{% set heroLinkHref = "" %}
+{% include "page-hero.njk" %}
+
+<section class="block on-black" style="border-top:1px solid var(--ink-line)">
+  <div class="wrap">
+    <div class="cases">
+      {% for cs in collections.work %}
+      <a class="case" href="{{ root }}{{ cs.url | replace('/', '', 1) }}">
+        <div class="case-cover{% if loop.index == 2 %} is-yellow{% elif loop.index == 3 %} is-grey{% endif %}">
+          <span class="tile-ring"></span>
+          <span class="case-client">{{ cs.data.client }}</span>
+          {% if cs.data.facts and cs.data.facts[0] %}<span class="case-stat"><strong>{{ cs.data.facts[0].n }}</strong><span>{{ cs.data.facts[0].label }}</span></span>{% endif %}
+        </div>
+        <div class="case-body"><h3>{{ cs.data.title }}</h3><p>{{ cs.data.summary }}</p><span class="muted small">{{ cs.data.services }}</span><span class="arrow-link">Read the case study</span></div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="block on-soft">
+  <div class="wrap">
+    <div class="head"><h2>What clients say</h2></div>
+    <div class="grid g2">
+      <div class="quote-card light"><p>The report was well researched, practical and grounded in the realities organisations like ours face.</p><cite><b>Sarah Nelson</b> · CEO, Foundation for Future London</cite></div>
+      <div class="quote-card light"><p>Matthew delivered a structured programme of market and organisational research, including stakeholder interviews.</p><cite><b>Keith and Dan Tucker</b> · Birmingham Community Boxing Project</cite></div>
+      <div class="quote-card light"><p>He helped us step back and take a more analytical view of our current position, capacity, and growth potential.</p><cite><b>Rachel Maynard</b> · CEO and Senior Forest School Leader</cite></div>
+      <div class="quote-card light"><p>I found him to be knowledgeable, engaging and deeply interested in safer gambling and player protection.</p><cite><b>Adrian Sladdin</b> · Director, Ethical Gambling Forum</cite></div>
+      <div class="quote-card light"><p>Working with Matthew marked a genuine turning point for our organisation, and the quality, depth, and practical application of his research exceeded our expectations.</p><cite><b>Julie Turner</b> · Vice Chair, Montgomeryshire Community Regeneration Association</cite></div>
+      <div class="quote-card light"><p>Very active in keeping in touch and giving advice to me. Helped me plan years in advance for my career path.</p><cite><b>NCAA elite athlete</b> · mentoring</cite></div>
+    </div>
+  </div>
+</section>
+
+<section class="block on-soft">
+  <div class="wrap">
+    <div class="head"><h2>Organisations we have worked with</h2><p>Charities, foundations, companies and the bodies that fund and regulate them.</p></div>
+    {% include "logo-wall.njk" %}
+  </div>
+</section>
+
+<section class="block on-black">
+  <div class="wrap">
+    <div class="head"><h2>Case studies to download</h2><p>Each one on a few pages, in the same form we send to prospective clients. Share them with your board.</p></div>
+    <div class="downloads">
+      {% for cs in collections.work %}
+      <a class="download" href="{{ root }}assets/downloads/{{ cs.fileSlug }}.pdf" target="_blank" rel="noopener">
+        <span class="download-doc" aria-hidden="true"><span class="download-doc-top"></span><span class="download-doc-title">{{ cs.data.title }}</span></span>
+        <span class="download-info">
+          <span class="case-client">{{ cs.data.client }}</span>
+          <h3>{{ cs.data.title }}</h3>
+          <span class="muted small">PDF · {{ cs.data.services }}</span>
+          <span class="arrow-link">Download the PDF</span>
+        </span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include "cta.njk" %}

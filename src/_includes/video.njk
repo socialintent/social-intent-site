@@ -1,0 +1,7 @@
+{# Self-hosted video block. Set vSrc (mp4 path under assets/), vPoster, vLabel, and optionally vSquare (true for 1:1). Autoplays muted and loops; the button restarts it with sound. If the file is missing, the poster shows and the button hides. #}
+<figure class="video{% if vSquare %} video-square{% endif %}">
+  <video class="video-el" autoplay muted loop playsinline preload="metadata" poster="{{ root }}{{ vPoster }}" aria-label="{{ vLabel }}">
+    <source src="{{ root }}{{ vSrc }}" type="video/mp4">
+  </video>
+  <button class="video-sound btn btn-yellow btn-small btn-plain" type="button" data-video-sound hidden>Watch with sound</button>
+</figure>

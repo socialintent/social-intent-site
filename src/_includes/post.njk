@@ -1,0 +1,26 @@
+---
+layout: base.njk
+---
+{% set heroEyebrow = "Insights · " ~ (page.date | readableDate) %}
+{% set heroTitle = title %}
+{% set heroLead = summary %}
+{% set heroNote = "" %}
+{% set heroCta = false %}{% set heroLink = false %}{% set heroLinkHref = "" %}
+{% include "page-hero.njk" %}
+<article class="block">
+  <div class="wrap article-grid">
+    <div class="prose">
+      {{ content | safe }}
+    </div>
+    <aside class="aside">
+      <h2>Could we help?</h2>
+      <p>Thirty minutes, no obligation. We'll tell you what we'd do next.</p>
+      <p><a class="btn btn-black btn-small" href="{{ site.calendly }}" rel="noopener">Book a call</a></p>
+      <h2>More insights</h2>
+      <ul>
+        {% for post in collections.insights %}{% if post.url != page.url %}<li><a class="arrow-link" href="{{ root }}{{ post.url | replace('/', '', 1) }}">{{ post.data.title }}</a></li>{% endif %}{% endfor %}
+      </ul>
+    </aside>
+  </div>
+</article>
+{% include "cta.njk" %}

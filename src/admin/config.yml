@@ -1,0 +1,76 @@
+# Decap CMS – a simple editing screen for the site, at /admin/ once hosted on Netlify.
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/assets/uploads"
+public_folder: "assets/uploads"
+site_url: https://www.social-intent.com
+display_url: https://www.social-intent.com
+logo_url: https://www.social-intent.com/assets/img/si-logo-main-black-yellow.png
+
+collections:
+  - name: insights
+    label: Insights (news)
+    label_singular: Insight
+    folder: src/insights
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    editor: { preview: false }
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Date, name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+      - { label: One-line summary, name: summary, widget: text, hint: "Shown in the list and on the home page. One or two sentences." }
+      - { label: Article, name: body, widget: markdown }
+
+  - name: work
+    label: Case studies
+    label_singular: Case study
+    folder: src/work
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    editor: { preview: false }
+    fields:
+      - { label: Title, name: title, widget: string, hint: "The story's headline, e.g. 'Driving with the brakes on'" }
+      - { label: Client, name: client, widget: string, hint: "Organisation and place" }
+      - { label: Order on the page, name: order, widget: number, default: 10, value_type: int }
+      - { label: Sector, name: sector, widget: string, required: false }
+      - { label: What we did, name: services, widget: string, hint: "Separate with · e.g. Strategy · Theory of Change" }
+      - { label: Year, name: year, widget: string, required: false }
+      - { label: One-line summary, name: summary, widget: text }
+      - { label: Client quote, name: quote, widget: text, required: false }
+      - { label: Quote by, name: quoteBy, widget: string, required: false }
+      - { label: Their role, name: quoteRole, widget: string, required: false }
+      - label: Key facts
+        name: facts
+        widget: list
+        required: false
+        hint: "Up to four big numbers, e.g. 12 weeks"
+        fields:
+          - { label: Number, name: n, widget: string }
+          - { label: Label, name: label, widget: string }
+      - { label: Case study, name: body, widget: markdown }
+
+  - name: resources
+    label: Guides (shop)
+    label_singular: Guide
+    folder: src/resources
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    editor: { preview: false }
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Kind, name: kind, widget: select, options: [Guide, Workbook, Decision guide, Starter guide, Toolkit, Template] }
+      - { label: Pages, name: pages, widget: number, value_type: int }
+      - { label: For, name: for, widget: select, options: [charities, companies] }
+      - { label: Who it's for, name: audience, widget: string, hint: "e.g. trustees, CEOs and finance leads" }
+      - { label: Status, name: status, widget: select, options: [available, coming-soon], default: coming-soon }
+      - { label: Order on the page, name: order, widget: number, default: 10, value_type: int }
+      - { label: Price (£), name: price, widget: number, default: 20, value_type: int, required: false }
+      - { label: Payhip product link, name: payhip, widget: string, required: false, hint: "From Payhip: Products › your product › Share › link, e.g. https://payhip.com/b/AbCd1" }
+      - { label: Payhip product ID, name: payhipId, widget: string, required: false, hint: "The code at the end of the link, e.g. AbCd1" }
+      - { label: One-line summary, name: summary, widget: text }
+      - { label: Notes (not shown), name: body, widget: markdown, required: false }

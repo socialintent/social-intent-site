@@ -1,0 +1,49 @@
+---
+layout: base.njk
+title: Contact
+description: Book a free 30-minute call with Social Intent, or send a message. Based in North Wales, working across the UK.
+permalink: contact.html
+---
+{% set heroEyebrow = "Contact" %}
+{% set heroTitle = "Let's talk." %}
+{% set heroLead = "The quickest way is to book a free 30-minute call. Tell us what you're working on and we'll say what we'd do next, and whether we're the right people to do it. No hard sell." %}
+{% set heroNote = "no hard<br>sell" %}
+{% set heroCta = "Book a 30-minute call" %}{% set heroCtaHref = site.calendly %}
+{% set heroLink = false %}{% set heroLinkHref = "" %}
+{% include "page-hero.njk" %}
+
+<section class="block on-soft">
+  <div class="wrap contact-grid">
+    <div>
+      <h2>Send a message</h2>
+      <form class="form" name="contact" method="POST" action="{{ root }}thanks.html" data-netlify="true" netlify-honeypot="company-website">
+        <input type="hidden" name="form-name" value="contact">
+        <p class="sr-only"><label>Leave this empty <input name="company-website" tabindex="-1" autocomplete="off"></label></p>
+        <div><label for="name">Your name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
+        <div><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+        <div><label for="org">Organisation</label><input id="org" name="organisation" type="text" autocomplete="organization"></div>
+        <div>
+          <label for="kind">I'm getting in touch as</label>
+          <select id="kind" name="kind">
+            <option>a charity or foundation</option>
+            <option>a company</option>
+            <option>a public body</option>
+            <option>something else</option>
+          </select>
+        </div>
+        <div><label for="message">What are you working on?</label><textarea id="message" name="message" required></textarea><p class="hint">A couple of lines is plenty. We reply within two working days.</p></div>
+        <div><button class="btn btn-yellow" type="submit">Send message</button></div>
+        <p id="form-preview-note" class="note" hidden tabindex="-1">This is a preview, so nothing was sent. On the live site this message lands in the Social Intent inbox.</p>
+      </form>
+    </div>
+    <div class="contact-panel">
+      <h2>Other ways</h2>
+      <p class="copyline"><code>{{ site.email }}</code> <button class="copy-btn" type="button" data-copy="{{ site.email }}">Copy</button></p>
+      <p><a href="tel:{{ site.phoneHref }}">{{ site.phone }}</a></p>
+      <p><a href="{{ site.linkedin }}" rel="noopener">Social Intent on LinkedIn</a></p>
+      <h3 style="margin-top:2rem;color:var(--paper)">Where we are</h3>
+      <p>{% for line in site.address %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>
+      <p>We're based on the Llŷn Peninsula in North Wales and work across the UK: on site, remote, or a mix of the two.</p>
+    </div>
+  </div>
+</section>

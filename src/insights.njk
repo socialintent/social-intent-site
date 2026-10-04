@@ -1,0 +1,28 @@
+---
+layout: base.njk
+title: Insights
+description: Short, practical pieces on charity strategy, impact, income and social value from Social Intent.
+permalink: insights.html
+---
+{% set heroEyebrow = "Insights" %}
+{% set heroTitle = "Short pieces on the questions <em>we get asked most.</em>" %}
+{% set heroLead = "Strategy, impact, income, governance and social value. New ones go out on LinkedIn first." %}
+{% set heroNote = "worth a<br>read" %}
+{% set heroCta = "Follow Social Intent on LinkedIn" %}{% set heroCtaHref = site.linkedin %}
+{% set heroLink = false %}{% set heroLinkHref = "" %}
+{% include "page-hero.njk" %}
+<section class="block on-soft">
+  <div class="wrap">
+    <ul class="posts">
+      {% for post in collections.insights %}
+      <li><a class="post" href="{{ root }}{{ post.url | replace('/', '', 1) }}">
+        <time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+        <h3>{{ post.data.title }}</h3>
+        <p>{{ post.data.summary }}</p>
+        <span class="arrow-link">Read</span>
+      </a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% include "cta.njk" %}

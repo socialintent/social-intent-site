@@ -1,0 +1,35 @@
+{
+  "name": "Social Intent",
+  "tagline": "For growth. For good.",
+  "url": "https://www.social-intent.com",
+  "description": "Social Intent is a critical friend to charities and the companies that back them: clarity of purpose, evidence of impact, and the income and partnerships that follow.",
+  "email": "hello@social-intent.com",
+  "phone": "0161 870 5544",
+  "phoneHref": "+441618705544",
+  "calendly": "https://calendly.com/social-intent/30min",
+  "linkedin": "https://www.linkedin.com/company/socialintent/",
+  "instagram": "https://www.instagram.com/social_intent",
+  "address": ["Social Intent Limited", "Unit 32, Llys Edmund Prys", "St Asaph Business Park", "St Asaph LL17 0JA"],
+  "companyNumber": "15373679",
+  "vatNumber": "458 4451 68",
+  "founder": "Matthew Hickey",
+  "payhipStore": "https://payhip.com/SocialIntent",
+  "guidePrice": 20,
+  "ampersand": {
+    "listed": false,
+    "email": "ampersand@social-intent.com",
+    "date": "March 2027",
+    "place": "Manchester",
+    "video": "assets/video/ampersand-hero.mp4",
+    "videoSquare": "assets/video/ampersand-hero-square.mp4"
+  },
+  "nav": [
+    { "label": "Charities", "href": "charities.html" },
+    { "label": "Companies", "href": "companies.html" },
+    { "label": "How we work", "href": "how-we-work.html" },
+    { "label": "Work", "href": "work.html" },
+    { "label": "Guides", "href": "guides.html" },
+    { "label": "Insights", "href": "insights.html" },
+    { "label": "About", "href": "about.html" }
+  ]
+}

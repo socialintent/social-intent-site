@@ -1,0 +1,66 @@
+---
+layout: base.njk
+title: For companies
+description: Social value strategy, measurement and charity partnerships for businesses. How being more charitable wins you more business, with the evidence to prove it.
+permalink: companies.html
+---
+{% set heroEyebrow = "For companies" %}
+{% set heroTitle = "How being more charitable <em>wins you more business.</em>" %}
+{% set heroLead = "Social value is now scored in public tenders, read by customers, and noticed by the people you want to hire. We help you decide what yours is, measure it properly, and show it without overclaiming." %}
+{% set heroNote = "purpose<br>&amp; profit" %}
+{% set heroCta = "Book a free 30-minute call" %}
+{% set heroLink = "How big is your social value budget?" %}{% set heroLinkHref = root ~ "insights/how-big-is-your-social-value-budget.html" %}
+{% include "page-hero.njk" %}
+
+<section class="block on-yellow">
+  <div class="wrap">
+    <div class="head"><h2>Why now</h2><p>Three reasons social value has moved from the CSR page to the board agenda.</p></div>
+    <div class="bento">
+      <div class="tile tile-dark span-4"><h3>Tenders score it</h3><p>Public buyers across the UK weigh social value alongside price and quality. In Wales, public bodies have had new duties to buy in a socially responsible way since March 2026. A credible, evidenced story is worth marks.</p></div>
+      <div class="tile tile-dark span-4"><h3>Your biggest social value budget is procurement</h3><p>Every purchase decides where economic opportunity goes. Local spend, prompt payment to small suppliers and buying from social enterprises create more value than most charitable budgets.</p></div>
+      <div class="tile tile-dark span-4"><h3>A cheque is the least you can offer</h3><p>Your skills, buildings, customers, networks and people are worth more to a charity than sponsorship. A strategic partnership is also worth more to you.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block on-soft">
+  <div class="wrap">
+    <div class="head"><h2>What we do for companies</h2><p>We have sat on both sides of the table: leading charities, and advising the companies and foundations that fund them. That is what makes the advice practical.</p></div>
+    <ul class="services">
+      <li><h3>Social value strategy</h3><p>What your business should stand for, where it can make a real difference, and how that connects to growth. Decided at board level, owned across the company.</p></li>
+      <li><h3>Measurement and reporting</h3><p>A measurement framework that captures what changes because of what you do, not just what you spend. Honest numbers you can put in a tender, an ESG report or an annual report.</p></li>
+      <li><h3>Charity partnership strategy</h3><p>Who to work with, why them, and what both sides will contribute. We help you move from "will you sponsor us?" to a partnership that lasts.</p></li>
+      <li><h3>Social value in bids</h3><p>Evidence and wording for the social value sections of tenders, built from what you actually do rather than what sounds good.</p></li>
+      <li><h3>Culture and people</h3><p>Giving your employees a meaningful way to contribute, and showing the difference it makes to recruitment, retention and pride in the business.</p></li>
+      <li><h3>Regulated sectors and levies</h3><p>Deep experience in the gambling and financial sectors, where charitable contributions are expected and scrutinised. We help you make them count.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="block on-black">
+  <div class="wrap quote-hero">
+    <div>
+      <p class="eyebrow" style="color:var(--yellow)">Ask the hard why</p>
+      <h2>Four questions we put to every board we work with.</h2>
+      <ol class="lead" style="padding-left:1.2em">
+        <li>Why do we give to the causes we give to?</li>
+        <li>What changes because of it, and how would we know?</li>
+        <li>Could more of our everyday spending do good as well?</li>
+        <li>Would our staff and customers recognise the answers?</li>
+      </ol>
+      <p class="muted">If any of them is hard to answer, that is where we start.</p>
+    </div>
+    <div class="quote-stack">
+      <div class="quote-card"><p>I found him to be knowledgeable, engaging and deeply interested in safer gambling and player protection.</p><cite><b>Adrian Sladdin</b> · Director, Ethical Gambling Forum</cite></div>
+      <div>
+        <p class="footer-h" style="margin-top:1rem">Companies, funders and regulators we have worked with</p>
+        {% set corp = ["Flutter", "GamCare", "Chevron Group", "The Betting and Gaming Council", "Kindbridge", "Aston Villa Foundation", "Foundation for Future London", "Youth Investment Fund", "Altair", "evive"] %}
+        <ul class="logo-wall logo-wall-small">
+          {% for c in clients %}{% if c.name in corp and c.logo %}<li class="logo-tile" title="{{ c.name }}"><img src="{{ root }}assets/img/clients/{{ c.logo }}" alt="{{ c.name }}" loading="lazy"></li>{% endif %}{% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include "cta.njk" %}

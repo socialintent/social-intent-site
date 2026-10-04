@@ -1,0 +1,75 @@
+---
+layout: base.njk
+title: For charities
+description: Strategic reviews, Theory of Change, impact frameworks, income strategy and governance for charities. Social Intent is the critical friend your board has been missing.
+permalink: charities.html
+---
+{% set heroEyebrow = "For charities" %}
+{% set heroTitle = "Busy but stuck? Your board may not need more ambition. <em>It may need a decision.</em>" %}
+{% set heroLead = "We work with charity boards and chief executives who need to decide what to do next: what to invest in, what to stop, and how to show funders the difference they make." %}
+{% set heroNote = "ask the<br>hard why" %}
+{% set heroCta = "Book a free 30-minute call" %}
+{% set heroLink = "Read the case studies" %}{% set heroLinkHref = root ~ "work.html" %}
+{% include "page-hero.njk" %}
+
+<section class="block on-black" style="border-top:1px solid var(--ink-line)">
+  <div class="wrap">
+    <div class="head"><h2>Sound familiar?</h2><p>Four situations we see in almost every charity that calls us.</p></div>
+    <div class="pain">
+      <div><h3>Every cautious choice made sense on its own</h3><p>Together they are holding the organisation still. The strategy period is ending and nobody is sure what the next one should say.</p></div>
+      <div><h3>You know you make a difference. Proving it is another matter</h3><p>Funders, commissioners and the new Charities SORP all want to know what changed, not just what you delivered.</p></div>
+      <div><h3>Income rests on a few contracts</h3><p>Recommissioning is coming and the pipeline behind it is thin. The case for support was written years ago.</p></div>
+      <div><h3>The building, the name, the way it has always been done</h3><p>Trustees who care deeply about the history, and a question nobody quite asks: what is this charity for now?</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block on-soft">
+  <div class="wrap">
+    <div class="head"><h2>What we do for charities</h2><p>Fixed-scope pieces of work with a clear question, a clear price and a clear end. Most take six to twelve weeks.</p></div>
+    <ul class="services">
+      <li><h3>Strategic review and critical-friend report</h3><p>One question, answered with evidence: what should you realistically invest in next, and what should you stop or defer? Findings with a confidence rating, recommendations in order, and decisions ready to minute.</p></li>
+      <li><h3>Theory of Change and impact framework</h3><p>The thread from purpose to programmes, programmes to outcomes, outcomes to evidence. With the gaps rated, so a small team knows where to start.</p></li>
+      <li><h3>Income strategy and cases for support</h3><p>A costed income model, a funder pipeline, and cases for support that are honest about what is still emerging. Trusts, corporates, major donors, commissioning and trading.</p></li>
+      <li><h3>Governance, structures and options appraisal</h3><p>Charity structures and trading subsidiaries, mergers and partnerships, property and premises, and whether to become a grant-giving foundation.</p></li>
+      <li><h3>Market and stakeholder research</h3><p>Structured interviews, surveys and focus groups with the people who know your organisation best, including the people you serve.</p></li>
+      <li><h3>Interim and fractional leadership</h3><p>Interim chief executive, director of development or marketing when you need a steady hand for a defined period.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="block on-yellow">
+  <div class="wrap quote-hero">
+    <div>
+      <p class="eyebrow">Charities SORP</p>
+      <h2>Ready for the new SORP?</h2>
+      <p class="lead">The new Charities SORP asks you to report what changed because of your work, not only what you did. For many charities the first report under the new rules covers this financial year.</p>
+      <p>We help trustees and finance leads work out what to measure, what to say, and what not to claim.</p>
+      <a class="btn btn-black" href="{{ root }}guides.html">Start with the SORP guide</a>
+    </div>
+    <blockquote class="bigquote">
+      <p>Our organisation had reached a point of stagnation, and Matthew helped unlock a clear path forward through robust, insight-led market research.</p>
+      <cite>Julie Turner <span>Vice Chair, Montgomeryshire Community Regeneration Association</span></cite>
+    </blockquote>
+  </div>
+</section>
+
+<section class="block on-black">
+  <div class="wrap">
+    <div class="head"><h2>Charity work, recently</h2><p>Named case studies, published with each client's approval.</p></div>
+    <div class="cases">
+      {% for cs in collections.work %}
+      <a class="case" href="{{ root }}{{ cs.url | replace('/', '', 1) }}">
+        <div class="case-cover{% if loop.index == 2 %} is-yellow{% elif loop.index == 3 %} is-grey{% endif %}">
+          <span class="tile-ring"></span>
+          <span class="case-client">{{ cs.data.client }}</span>
+          {% if cs.data.facts and cs.data.facts[0] %}<span class="case-stat"><strong>{{ cs.data.facts[0].n }}</strong><span>{{ cs.data.facts[0].label }}</span></span>{% endif %}
+        </div>
+        <div class="case-body"><h3>{{ cs.data.title }}</h3><p>{{ cs.data.summary }}</p><span class="arrow-link">Read the case study</span></div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include "cta.njk" %}

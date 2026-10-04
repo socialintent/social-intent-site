@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{% if title and title != site.name %}{{ title }} | {{ site.name }}{% else %}{{ site.name }} | {{ site.tagline }}{% endif %}</title>
+<meta name="description" content="{{ description or site.description }}">
+{% if noindex %}<meta name="robots" content="noindex, nofollow">{% endif %}
+<link rel="canonical" href="{{ site.url }}/{{ page.url | replace('/', '') }}">
+<link rel="icon" href="{{ root }}assets/img/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="{{ title or site.name }}">
+<meta property="og:description" content="{{ description or site.description }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Source+Sans+3:wght@400;600;700&family=Sacramento&display=swap">
+{% if sora or site.ampersand.listed or preview %}<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap">{% endif %}
+<link rel="stylesheet" href="{{ root }}assets/css/site.css">
+</head>
+<body class="{{ bodyClass }}">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header" data-header>
+  <div class="wrap header-row">
+    <a class="brand" href="{{ root }}index.html" aria-label="Social Intent home">
+      <img src="{{ root }}assets/img/si-logo-landscape-white-yellow.svg" alt="Social Intent" width="620" height="55">
+    </a>
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <ul>
+        {% for item in site.nav %}
+        <li><a href="{{ root }}{{ item.href }}"{% if page.url == '/' + item.href %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+        {% endfor %}
+        {% if site.ampersand.listed or preview %}<li><a href="{{ root }}ampersand.html" class="nav-amp"{% if page.url == '/ampersand.html' %} aria-current="page"{% endif %}><span class="nav-amp-glyph">&amp;</span>Ampersand</a></li>{% endif %}
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-yellow btn-small header-cta" href="{{ root }}contact.html">Book a call</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-bar"></span><span class="sr-only">Menu</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+{{ content | safe }}
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <p class="footer-big">Let's make the difference you make <span>impossible to ignore.</span></p>
+      <div class="btn-row">
+        <a class="btn btn-yellow" href="{{ site.calendly }}" rel="noopener">Book a 30-minute call</a>
+        <a class="btn btn-ghost" href="{{ root }}contact.html">Send a message</a>
+      </div>
+    </div>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="{{ root }}assets/img/si-logo-landscape-white-yellow.svg" alt="Social Intent" width="310" height="28">
+        <p class="handwritten footer-tagline">{{ site.tagline }}</p>
+      </div>
+      <div class="footer-col">
+        <h2 class="footer-h">Talk to us</h2>
+        <p><a href="mailto:{{ site.email }}">{{ site.email }}</a><br><a href="tel:{{ site.phoneHref }}">{{ site.phone }}</a></p>
+        <p><a href="{{ site.linkedin }}" rel="noopener">LinkedIn</a><br><a href="{{ site.instagram }}" rel="noopener">Instagram</a></p>
+      </div>
+      <div class="footer-col">
+        <h2 class="footer-h">Find your way</h2>
+        <ul class="footer-links">
+          {% for item in site.nav %}<li><a href="{{ root }}{{ item.href }}">{{ item.label }}</a></li>{% endfor %}
+          <li><a href="{{ root }}contact.html">Contact</a></li>
+          {% if site.ampersand.listed or preview %}<li><a href="{{ root }}ampersand.html">Ampersand</a></li>{% endif %}
+        </ul>
+      </div>
+      <div class="footer-col footer-legal">
+        <h2 class="footer-h">Social Intent Limited</h2>
+        <p>{% for line in site.address %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>
+        <p>Registered in England and Wales, company number {{ site.companyNumber }}. VAT number {{ site.vatNumber }}.</p>
+        <p><a href="{{ root }}privacy.html">Privacy</a> · <a href="{{ root }}terms.html">Terms</a> · © {{ buildYear }} Social Intent Limited</p>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="{{ root }}assets/js/site.js" defer></script>
+</body>
+</html>

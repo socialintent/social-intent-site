@@ -1,0 +1,8 @@
+{# Logo wall. Each client in _data/clients.json gets a white tile: the logo file from assets/img/clients/, or the name set in the brand face when there is no file yet. #}
+<ul class="logo-wall" aria-label="Organisations we have worked with">
+  {% for c in clients %}
+  <li class="logo-tile{% if not c.logo %} logo-tile-name{% endif %}" title="{{ c.name }}">
+    {% if c.logo %}<img src="{{ root }}assets/img/clients/{{ c.logo }}" alt="{{ c.name }}" loading="lazy">{% else %}<span>{{ c.name }}</span>{% endif %}
+  </li>
+  {% endfor %}
+</ul>

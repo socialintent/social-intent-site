@@ -1,0 +1,53 @@
+---
+layout: base.njk
+title: Ampersand Manchester
+description: 100 charities. 100 companies. One room in Manchester, March 2027. A room to meet, learn, and back each other's aims. By Social Intent.
+permalink: ampersand.html
+bodyClass: amp-page
+sora: true
+noindex: true
+---
+<section class="amp-hero" style="border-top:1px solid #2A2A2A">
+  <div class="wrap amp-hero-grid amp-hero-grid-video">
+    {% set vSrc = site.ampersand.video %}{% set vPoster = "assets/img/ampersand-poster.jpg" %}{% set vLabel = "Ampersand Manchester: 200 dots gather into an ampersand. 100 charities, 100 companies, one room." %}{% set vSquare = false %}
+    {% include "video.njk" %}
+    <div>
+      <p class="amp-wordmark">ampersand <span>manchester</span></p>
+      <h1>100 charities. 100 companies. One room.</h1>
+      <p class="lead">Charities and companies rarely meet where nobody is selling. So we built the room. A room to meet, learn, and back each other's aims.</p>
+      <ul class="amp-rules" aria-label="How the room works">
+        <li>Equal numbers</li>
+        <li>No hard sell</li>
+        <li>£3,500 voted by the room</li>
+        <li>{{ site.ampersand.place }}, {{ site.ampersand.date }}</li>
+      </ul>
+      <p>To be in the room, email one line to</p>
+      <p class="amp-email">{{ site.ampersand.email }}</p>
+      <p class="small" style="color:#A8A8A8">Who you are, and who you'd like to meet. Every email lights one of the 200 dots. Registration opens January 2027.</p>
+    </div>
+  </div>
+</section>
+
+<section class="amp-section">
+  <div class="wrap grid grid-3">
+    <div><h2>Meet as equals</h2><p>One hundred charity leaders and one hundred company leaders, in the same room, in equal numbers. Nobody is the audience and nobody is the pitch.</p></div>
+    <div><h2>Learn from each other</h2><p>The only presentations are from the charities the room came to hear. Everything else is conversation, with the people you'd never otherwise sit next to.</p></div>
+    <div><h2>Leave with allies</h2><p>The room decides which three charities go home with £2,000, £1,000 and £500. Everyone leaves with names, not leaflets.</p></div>
+  </div>
+</section>
+
+<section class="amp-section">
+  <div class="wrap">
+    <h2>The series</h2>
+    <div class="grid grid-3">
+      <div><h3>ampersand roundtable</h3><p>A breakfast for six to eight charity and company leaders in Manchester, ahead of the main event.</p></div>
+      <div><h3>ampersand manchester</h3><p>The flagship: 100 charities and 100 companies, {{ site.ampersand.date }}.</p></div>
+      <div><h3>ampersand cymru</h3><p>A Wales edition, in discussion.</p></div>
+    </div>
+    <p style="margin-top:2rem">Companies and foundations interested in founding partnership, and charities who want to present, can email <a href="mailto:{{ site.ampersand.email }}">{{ site.ampersand.email }}</a>.</p>
+    <div class="amp-by">
+      <span>by</span>
+      <img src="{{ root }}assets/img/si-logo-landscape-white-yellow.svg" alt="Social Intent" width="620" height="55">
+    </div>
+  </div>
+</section>

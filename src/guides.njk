@@ -1,0 +1,49 @@
+---
+layout: base.njk
+title: Guides
+description: Practical PDF guides from Social Intent's work with charities and companies. £20 each, or free when you book a call.
+permalink: guides.html
+---
+{% set heroEyebrow = "Guides" %}
+{% set heroTitle = "Practical guides for <em>doing good well.</em>" %}
+{% set heroLead = "Thirty years of working with charities, companies and funders, and the same challenges keep coming up: unclear strategy, impact that's hard to show, governance that holds organisations back, and income that isn't secure. These guides put our approach into your hands." %}
+{% set heroNote = "use it on<br>Monday" %}
+{% set heroCta = false %}{% set heroLink = false %}{% set heroLinkHref = "" %}
+{% include "page-hero.njk" %}
+
+<section class="block-s on-yellow">
+  <div class="wrap how-strip">
+    <div class="tile-dark"><h3>{{ site.guidePrice | money }} per guide</h3><p>Instant PDF download after purchase. Checkout is handled securely by Payhip.</p></div>
+    <div class="tile-dark"><h3>Or get one free</h3><p>Book a free 30-minute call and we'll send you the guide of your choice afterwards.</p><p style="margin-top:.8rem"><a class="btn btn-yellow btn-small" href="{{ site.calendly }}" rel="noopener">Book a call</a></p></div>
+    <div class="tile-dark"><h3>Buying for a team?</h3><p>Share within your organisation freely. Email us if an invoice is easier than a card.</p></div>
+  </div>
+</section>
+
+<section class="block on-black">
+  <div class="wrap">
+    <div class="head"><h2>For charities</h2></div>
+    <div class="guides">
+      {% for g in collections.resources | where('for', 'charities') %}{% include "guide-card.njk" %}{% endfor %}
+    </div>
+    <div class="head" style="margin-top:var(--pad-s)"><h2>For companies</h2></div>
+    <div class="guides">
+      {% for g in collections.resources | where('for', 'companies') %}{% include "guide-card.njk" %}{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="block on-soft">
+  <div class="wrap">
+    <div class="head"><h2>Questions</h2></div>
+    <div class="faq">
+      <div><h3>What format are the guides?</h3><p>Multi-page PDFs you can read on screen or print. You get a download link straight after purchase.</p></div>
+      <div><h3>Can I share one with my team or board?</h3><p>Yes, within your own organisation. Please don't republish or resell it.</p></div>
+      <div><h3>Do prices include VAT?</h3><p>Yes. Prices shown include VAT at the applicable rate, and your receipt comes from Payhip.</p></div>
+      <div><h3>Can I get a refund?</h3><p>Because the guides are delivered instantly as downloads, we can't refund once a file has been downloaded. If there's a problem with your file, email <a href="mailto:{{ site.email }}">{{ site.email }}</a> and we'll put it right.</p></div>
+      <div><h3>What if I need more than a guide?</h3><p>That's what the call is for. Tell us what you're working on and we'll talk it through, with no obligation.</p></div>
+      <div><h3>Can my organisation buy several?</h3><p>Yes. Email us for an invoice if that's easier than paying by card.</p></div>
+    </div>
+  </div>
+</section>
+
+{% include "cta.njk" %}

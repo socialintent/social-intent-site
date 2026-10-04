@@ -1,0 +1,199 @@
+---
+layout: base.njk
+title: Social Intent
+description: Social Intent is a critical friend to charities and the companies that back them. Clarity of purpose, evidence of impact, and the income and partnerships that follow. Based in North Wales, working across the UK.
+permalink: index.html
+---
+<section class="hero">
+  <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+  <svg class="hero-rings-static" viewBox="0 0 250 232" aria-hidden="true" focusable="false">
+    <circle class="hr-big hr-spin" cx="96" cy="116" r="96"/>
+    <circle class="hr-small hr-spin hr-spin-back" cx="202" cy="47" r="40"/>
+    <circle class="hr-small hr-spin hr-spin-back" cx="202" cy="185" r="40"/>
+  </svg>
+  <div class="wrap hero-inner">
+    <div>
+      <p class="eyebrow" style="color:var(--yellow)">Strategy · Impact · Income · Social value</p>
+      <h1>A critical friend to charities, <em>and</em> to the companies behind them.</h1>
+      <p class="lead">Clarity about what you're for. Evidence of the difference you make. And the income, partnerships and growth that follow when both are in place.</p>
+      <div class="btn-row">
+        <a class="btn btn-yellow" href="{{ root }}contact.html">Book a free 30-minute call</a>
+        <a class="btn btn-ghost" href="{{ root }}how-we-work.html">How we work</a>
+      </div>
+    </div>
+    <aside class="hero-side">
+      <strong>Thirty years on both sides of the table</strong>
+      Chief executive, marketing director, fundraiser, trustee and adviser. We know what boards really ask, what funders really read, and what makes a partnership last.
+      <span class="handwritten">For growth. For good.</span>
+    </aside>
+  </div>
+  <span class="hero-scroll">Scroll</span>
+</section>
+
+<div class="marquee" aria-label="Organisations we have worked with">
+  <div class="marquee-track">
+    {% for pass in [1, 2] %}
+    <ul{% if pass == 2 %} aria-hidden="true"{% endif %}>
+      {% for c in clients %}{% if c.logo %}<li><img src="{{ root }}assets/img/clients/{{ c.logo }}" alt="{{ c.name }}" width="150" height="60" decoding="async"></li>{% endif %}{% endfor %}
+    </ul>
+    {% endfor %}
+  </div>
+</div>
+
+<section class="doors">
+  <a class="door door-charity" href="{{ root }}charities.html">
+    <div class="door-inner">
+      <p class="eyebrow">If you lead a charity</p>
+      <h2>Strategy your board can act on. Impact funders believe.</h2>
+      <p>An honest review of where you really are, a Theory of Change that connects what you do to what changes, and an income plan with the evidence behind it.</p>
+      <span class="arrow-link">For charities</span>
+    </div>
+  </a>
+  <div class="doors-amp" aria-hidden="true">&amp;</div>
+  <a class="door door-company" href="{{ root }}companies.html">
+    <div class="door-inner">
+      <p class="eyebrow">If you run a business</p>
+      <h2>Social value that wins work. Giving that means something.</h2>
+      <p>Social value is now scored in tenders and read by customers and staff. We help you choose it, measure it and show it, so being more charitable wins you more business.</p>
+      <span class="arrow-link">For companies</span>
+    </div>
+  </a>
+</section>
+
+<section class="clarity">
+  <div class="clarity-noise" role="img" aria-label="Pages of figures, reports and notes layered on top of each other">
+    <span class="handwritten">murky?</span>
+  </div>
+  <div class="clarity-text">
+    <p class="eyebrow" style="color:var(--yellow)">What we do</p>
+    <h2>When all around you is murky, we help you see the light.</h2>
+    <p class="lead">Four things, done properly, in whatever order your organisation needs them.</p>
+  </div>
+</section>
+
+<section class="block-s on-black">
+  <div class="wrap">
+    <div class="bento">
+      <a class="tile tile-yellow span-6 tile-big" href="{{ root }}charities.html">
+        <span class="tile-ring"></span>
+        <img class="tile-icon" src="{{ root }}assets/img/icons/lightbulb.svg" alt="" width="48" height="54">
+        <h3>Strategy and the critical-friend review</h3>
+        <p>What to invest in next, what to stop, and the evidence for both. Findings rated, recommendations in order, decisions ready to minute.</p>
+        <span class="arrow-link">Read more</span>
+      </a>
+      <a class="tile tile-outline span-6" href="{{ root }}charities.html">
+        <img class="tile-icon" src="{{ root }}assets/img/icons/impact.svg" alt="" width="48" height="48">
+        <h3>Theory of Change and impact</h3>
+        <p>From what you do to what changes, in a form funders, trustees and the new SORP can use.</p>
+        <span class="arrow-link">Read more</span>
+      </a>
+      <a class="tile tile-outline span-6" href="{{ root }}charities.html">
+        <img class="tile-icon" src="{{ root }}assets/img/icons/pound.svg" alt="" width="48" height="48">
+        <h3>Income, fundraising and partnerships</h3>
+        <p>Costed income strategies, cases for support, and corporate relationships worth more than a cheque.</p>
+        <span class="arrow-link">Read more</span>
+      </a>
+      <a class="tile tile-white span-6" href="{{ root }}companies.html">
+        <span class="tile-ring" style="border-color:rgba(254,219,0,.7)"></span>
+        <img class="tile-icon" src="{{ root }}assets/img/icons/people.svg" alt="" width="48" height="48">
+        <h3>Social value for business</h3>
+        <p>Choosing, measuring and reporting the social value in how you buy, give, employ and operate.</p>
+        <span class="arrow-link">Read more</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="block on-soft">
+  <div class="wrap">
+    <div class="head">
+      <h2>The Strategic Insight Model™</h2>
+      <p>Six steps, in this order, on every assignment. Every statement labelled as evidence, stakeholder view, our interpretation or a decision for you, so you always know which is which.</p>
+    </div>
+    {% include "method.njk" %}
+  </div>
+</section>
+
+<section class="block on-black">
+  <div class="wrap">
+    <div class="head">
+      <h2>Work we're proud of</h2>
+      <p>Named case studies, published with each client's approval.</p>
+    </div>
+    <div class="cases">
+      {% for cs in collections.work %}
+      <a class="case" href="{{ root }}{{ cs.url | replace('/', '', 1) }}">
+        <div class="case-cover{% if loop.index == 2 %} is-yellow{% elif loop.index == 3 %} is-grey{% endif %}">
+          <span class="tile-ring"></span>
+          <span class="case-client">{{ cs.data.client }}</span>
+          {% if cs.data.facts and cs.data.facts[0] %}<span class="case-stat"><strong>{{ cs.data.facts[0].n }}</strong><span>{{ cs.data.facts[0].label }}</span></span>{% endif %}
+        </div>
+        <div class="case-body">
+          <h3>{{ cs.data.title }}</h3>
+          <p>{{ cs.data.summary }}</p>
+          <span class="arrow-link">Read the case study</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    <div class="quote-hero" style="margin-top:var(--pad-s)">
+      <blockquote class="bigquote">
+        <p>Matthew came in as a critical friend, and that is exactly what he was. He gave us back something we can actually use: not a strategy to sit on a shelf, but a set of decisions, in order, with the evidence behind each one.</p>
+        <cite>Sarah Nelson <span>Chair of Trustees, New Dawn New Day</span></cite>
+      </blockquote>
+      <div class="quote-stack">
+        <div class="quote-card"><p>Working with Matthew marked a genuine turning point for our organisation, and the quality, depth, and practical application of his research exceeded our expectations.</p><cite><b>Julie Turner</b> · Vice Chair, Montgomeryshire Community Regeneration Association</cite></div>
+        <div class="quote-card"><p>The work has given us much greater clarity around our strategy, Theory of Change, impact measurement and how we communicate our value to funders.</p><cite><b>5 On It Foundation</b> · Milton Keynes</cite></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% if site.ampersand.listed or preview %}
+<section class="amp-band">
+  <div class="wrap amp-band-grid">
+    {% set vSrc = site.ampersand.videoSquare %}{% set vPoster = "assets/img/ampersand-poster-square.jpg" %}{% set vLabel = "Ampersand Manchester film" %}{% set vSquare = true %}
+    {% include "video.njk" %}
+    <div>
+      <p class="amp-wordmark amp-band-mark">ampersand <span>manchester</span></p>
+      <h2>100 charities. 100 companies. One room.</h2>
+      <p>Charities and companies rarely meet where nobody is selling. So we built the room. {{ site.ampersand.place }}, {{ site.ampersand.date }}. To be in it, email one line to <strong>{{ site.ampersand.email }}</strong>.</p>
+      <a class="btn btn-yellow" href="{{ root }}ampersand.html">About Ampersand</a>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="block on-black" style="border-top:1px solid var(--ink-line)">
+  <div class="wrap">
+    <div class="head">
+      <h2>Guides you can use on Monday</h2>
+      <p>Practical, plain-English guides from our client work. {{ site.guidePrice | money }} each as a PDF, or free when you book a call with us.</p>
+    </div>
+    <div class="guides">
+      {% for g in collections.resources | where('status', 'available') | limit(3) %}{% include "guide-card.njk" %}{% endfor %}
+    </div>
+    <p style="margin-top:2rem"><a class="arrow-link" href="{{ root }}guides.html">All guides</a></p>
+  </div>
+</section>
+
+<section class="block on-soft">
+  <div class="wrap">
+    <div class="head">
+      <h2>Insights</h2>
+      <p>Short pieces on the questions we get asked most. New ones go out on LinkedIn first.</p>
+    </div>
+    <ul class="posts">
+      {% for post in collections.insights | limit(3) %}
+      <li><a class="post" href="{{ root }}{{ post.url | replace('/', '', 1) }}">
+        <time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+        <h3>{{ post.data.title }}</h3>
+        <p>{{ post.data.summary }}</p>
+        <span class="arrow-link">Read</span>
+      </a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+{% include "cta.njk" %}
