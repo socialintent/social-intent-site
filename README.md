@@ -83,7 +83,7 @@ The strapline on the page is the web/email version from the strapline system: "A
 - Photography slots: the About page portrait (`.portrait` in `src/about.njk`), and the case-study covers (`.case-cover`) will take a black-and-white image as a background if you want one. Imagery should be black and white, per the Brand Book.
 - The Ampersand assets were built with yellow `#F7DA18`. This site uses the Brand Book's `#FEDB00` everywhere, which is near-identical. Worth standardising the Ampersand files on `#FEDB00` next time they are re-rendered.
 - **Pink Champagne** (the handwritten font) is installed in `src/assets/fonts/` from your licensed web-font files. Your licence covers this site; keep the receipt in OneDrive with the fonts.
-- Your photo: replace the placeholder on the About page. Black and white, natural and relaxed, per the Brand Book. Drop it in `src/assets/img/matthew.jpg` and swap the `.portrait` block in `src/about.njk` for `<img src="{{ root }}assets/img/matthew.jpg" alt="Matthew Hickey">`.
+- Your photo is on the About page at `src/assets/img/matthew.jpg`, converted to black and white per the Brand Book. To change it, drop a new file in with the same name (a larger original, at least 800×1000 pixels, will look sharper on big screens; the page crops it to 4:5 and renders it in black and white whatever colour it starts as).
 - The logo files in `assets/img/` are the official SVGs from OneDrive › LOGOS › DIGITAL (landscape, main and landscape-circles, in black/yellow and white/yellow), plus the brand circles, hand-drawn marks and icons from GRAPHICS.
 
 ## Client logos
