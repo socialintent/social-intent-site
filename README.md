@@ -63,13 +63,14 @@ Until the files exist the poster frame shows (`assets/img/ampersand-poster.jpg`)
 
 ## Switching Ampersand on
 
-The Ampersand page is built but hidden: not in the menu, not in the footer, and marked `noindex`. It is reachable at `/ampersand.html` if you want to show someone.
+The Ampersand page is built but hidden: not in the menu, not in the footer, no band on the home page, and marked `noindex` so Google ignores it. It is reachable at `/ampersand.html` if you want to show someone.
 
-When the launch starts (3 November 2026, reveal on 24 November):
+When the launch starts (3 November 2026, reveal on 24 November), flip one switch:
 
-1. In `src/_data/site.json` set `"listed": true`. That adds Ampersand to the menu and footer.
-2. In `src/ampersand.njk` delete the line `noindex: true`.
-3. Optionally add a short Ampersand block to the home page and the Companies page (the dot mark is at `assets/img/ampersand-dots.svg`).
+- In `/admin/` → **Site settings** → Ampersand → turn on **Show Ampersand on the site** → Publish. The site rebuilds in about a minute.
+- Or, without the admin screen: in `src/_data/site.json` change `"listed": false` to `"listed": true` and push.
+
+That one change adds Ampersand to the menu and footer, puts the film and the "100 charities. 100 companies. One room." band on the home page, and removes the `noindex` tag. Turn it off again the same way. The same settings page holds the event date, place and email, and the site's contact details.
 
 The strapline on the page is the web/email version from the strapline system: "A room to meet, learn, and back each other's aims."
 

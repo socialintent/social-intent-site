@@ -74,3 +74,49 @@ collections:
       - { label: Payhip product ID, name: payhipId, widget: string, required: false, hint: "The code at the end of the link, e.g. AbCd1" }
       - { label: One-line summary, name: summary, widget: text }
       - { label: Notes (not shown), name: body, widget: markdown, required: false }
+
+  - name: settings
+    label: Site settings
+    editor: { preview: false }
+    files:
+      - name: site
+        label: Site settings
+        file: src/_data/site.json
+        fields:
+          - label: Ampersand
+            name: ampersand
+            widget: object
+            collapsed: false
+            fields:
+              - { label: Show Ampersand on the site, name: listed, widget: boolean, default: false, hint: "Off: the page exists at /ampersand.html but is not in the menu, not on the home page, and hidden from Google. On: in the menu and footer, the film and band on the home page, and open to Google. Click Publish to make it happen; the site rebuilds in about a minute." }
+              - { label: Date (in words), name: date, widget: string }
+              - { label: Place, name: place, widget: string }
+              - { label: Email for the event, name: email, widget: string }
+              - { label: Hero film file, name: video, widget: string, hint: "Leave as it is unless you rename the film" }
+              - { label: Square film file, name: videoSquare, widget: string }
+          - { label: Email, name: email, widget: string }
+          - { label: Phone (as shown), name: phone, widget: string }
+          - { label: Phone for tap-to-call, name: phoneHref, widget: string, hint: "International form with no spaces, e.g. +441618705544" }
+          - { label: Calendly link, name: calendly, widget: string }
+          - { label: LinkedIn, name: linkedin, widget: string }
+          - { label: Instagram, name: instagram, widget: string }
+          - label: Postal address
+            name: address
+            widget: list
+            field: { label: Line, name: line, widget: string }
+          - { label: Company number, name: companyNumber, widget: string }
+          - { label: VAT number, name: vatNumber, widget: string }
+          - { label: Founder, name: founder, widget: string }
+          - { label: Payhip shop link, name: payhipStore, widget: string }
+          - { label: Guide price (£), name: guidePrice, widget: number, value_type: int }
+          - { label: Site name, name: name, widget: string }
+          - { label: Tagline, name: tagline, widget: string }
+          - { label: Site address, name: url, widget: string }
+          - { label: Description for Google and social sharing, name: description, widget: text }
+          - label: Menu
+            name: nav
+            widget: list
+            collapsed: true
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Page, name: href, widget: string, hint: "e.g. charities.html" }
