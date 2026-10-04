@@ -67,7 +67,7 @@ collections:
       - { label: Title, name: title, widget: string }
       - { label: Kind, name: kind, widget: select, options: [Guide, Workbook, Decision guide, Starter guide, Toolkit, Template] }
       - { label: Pages, name: pages, widget: number, value_type: int }
-      - { label: For, name: for, widget: select, options: [charities, companies] }
+      - { label: For, name: for, widget: select, options: [charities, companies, athletes] }
       - { label: Who it's for, name: audience, widget: string, hint: "e.g. trustees, CEOs and finance leads" }
       - { label: Status, name: status, widget: select, options: [available, coming-soon], default: coming-soon }
       - { label: Order on the page, name: order, widget: number, default: 10, value_type: int }

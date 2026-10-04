@@ -52,7 +52,7 @@ Everything you save is a Markdown file in `src/`. You can also edit those files 
 4. **Free guide with a call**: in Payhip create a 100%-off coupon, then paste it into your Calendly confirmation email ("Your guide code is …"). Or send the PDF yourself after the call, which makes it a thank-you rather than a freebie.
 5. VAT: you are VAT-registered, so check with your accountant how Payhip should handle VAT on UK and EU sales. The Terms page says prices include VAT.
 
-The six guides in `src/resources/` are suggested titles drawn from your existing work. Four are marked `available` with placeholder Payhip links (`REPLACE1`…). Change the titles, or set them to `coming-soon`, before launch.
+The guides for sale are written in `guides/*.md` and built into branded A4 PDFs by `python3 tools/build-guides.py` (output in `guides-pdf/`, with a portrait and a square cover image for Payhip). `guides-pdf/` is outside `src/`, so the paid PDFs are never published on the site: upload them to Payhip only. Three are finished: *Charity structures and trading subsidiaries*, *Ready for the new SORP* and *Athlete legacy: do you need a foundation?*. The other entries in `src/resources/` are suggested titles. A guide shows a Buy button only when its status is `available` **and** it has a real Payhip link; otherwise it shows as coming soon, so nothing goes live by accident.
 
 ## Video
 

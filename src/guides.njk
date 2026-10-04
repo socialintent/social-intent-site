@@ -29,6 +29,10 @@ permalink: guides.html
     <div class="guides">
       {% for g in collections.resources | where('for', 'companies') %}{% include "guide-card.njk" %}{% endfor %}
     </div>
+    <div class="head" style="margin-top:var(--pad-s)"><h2>For athletes and sport</h2></div>
+    <div class="guides">
+      {% for g in collections.resources | where('for', 'athletes') %}{% include "guide-card.njk" %}{% endfor %}
+    </div>
   </div>
 </section>
 

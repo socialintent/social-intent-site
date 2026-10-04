@@ -5,7 +5,7 @@ pages: 28
 for: charities
 audience: charity CEOs, trustees and programme leads
 status: available
-order: 1
+order: 3
 price: 20
 payhip: https://payhip.com/b/REPLACE1
 payhipId: REPLACE1
