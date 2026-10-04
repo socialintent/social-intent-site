@@ -8,7 +8,7 @@ sora: true
 ---
 <section class="amp-hero" style="border-top:1px solid #2A2A2A">
   <div class="wrap amp-hero-grid amp-hero-grid-video">
-    {% set vSrc = site.ampersand.video %}{% set vPoster = "assets/img/ampersand-poster.jpg" %}{% set vLabel = "Ampersand Manchester: 200 dots gather into an ampersand. 100 charities, 100 companies, one room." %}{% set vSquare = false %}
+    {% set vSrc = site.ampersand.video %}{% set vPoster = "assets/img/ampersand-poster-square.jpg" %}{% set vLabel = "Ampersand Manchester: 200 dots gather into an ampersand. 100 charities, 100 companies, one room." %}{% set vSquare = true %}
     {% include "video.njk" %}
     <div>
       <p class="amp-wordmark">ampersand <span>manchester</span></p>
@@ -32,6 +32,33 @@ sora: true
     <div><h2>Meet as equals</h2><p>One hundred charity leaders and one hundred company leaders, in the same room, in equal numbers. Nobody is the audience and nobody is the pitch.</p></div>
     <div><h2>Learn from each other</h2><p>The only presentations are from the charities the room came to hear. Everything else is conversation, with the people you'd never otherwise sit next to.</p></div>
     <div><h2>Leave with allies</h2><p>The room decides which three charities go home with £2,000, £1,000 and £500. Everyone leaves with names, not leaflets.</p></div>
+  </div>
+</section>
+
+<section class="amp-section amp-films">
+  <div class="wrap">
+    <h2>Three short films</h2>
+    <p class="lead">Why the room exists, how to be in it, and what it gives away.</p>
+    <div class="grid grid-3">
+      <div>
+        {% set vSrc = "assets/video/ampersand-why.mp4" %}{% set vPoster = "assets/img/ampersand-poster-why.jpg" %}{% set vLabel = "Why: charities and companies rarely meet where nobody is selling. So we built the room." %}{% set vSquare = true %}
+        {% include "video.njk" %}
+        <h3>Why</h3>
+        <p>Charities and companies rarely meet where nobody is selling. So we built the room.</p>
+      </div>
+      <div>
+        {% set vSrc = "assets/video/ampersand-how.mp4" %}{% set vPoster = "assets/img/ampersand-poster-how.jpg" %}{% set vLabel = "How: to be in the room, email one line. Every email lights one of the 200 dots." %}{% set vSquare = true %}
+        {% include "video.njk" %}
+        <h3>How</h3>
+        <p>To be in the room, email one line. Every email lights one of the 200 dots.</p>
+      </div>
+      <div>
+        {% set vSrc = "assets/video/ampersand-giving.mp4" %}{% set vPoster = "assets/img/ampersand-poster-giving.jpg" %}{% set vLabel = "The giving: £3,500 given on the day, chosen by the room." %}{% set vSquare = true %}
+        {% include "video.njk" %}
+        <h3>The giving</h3>
+        <p>£3,500 given on the day. Chosen by the room, not by us.</p>
+      </div>
+    </div>
   </div>
 </section>
 

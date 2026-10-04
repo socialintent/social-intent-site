@@ -56,12 +56,12 @@ The six guides in `src/resources/` are suggested titles drawn from your existing
 
 ## Video
 
-The Ampersand page hero and the home-page Ampersand band are video blocks (`src/_includes/video.njk`). They autoplay muted and loop, with a "Watch with sound" button that restarts the film with audio. Drop the films in as:
+Four square (1080×1080) Ampersand films live in `src/assets/video/`, with poster frames in `src/assets/img/`:
 
-- `src/assets/video/ampersand-hero.mp4` (1920×1080, the 36-second hero film)
-- `src/assets/video/ampersand-hero-square.mp4` (1080×1080 cut, for the home-page band)
+- `ampersand-hero-square.mp4` (36 s): the hero of the Ampersand page and the band on the home page.
+- `ampersand-why.mp4`, `ampersand-how.mp4`, `ampersand-giving.mp4` (15–23 s): the "Three short films" section on the Ampersand page.
 
-Until the files exist the poster frame shows (`assets/img/ampersand-poster.jpg`) and the sound button stays hidden. Keep each file under about 15 MB (H.264, AAC, `-movflags +faststart` so it starts before it has fully downloaded). To put a video anywhere else, set `vSrc`, `vPoster` and `vLabel` and `{% include "video.njk" %}`. For long films, host on Vimeo or YouTube and embed instead; short brand films are better self-hosted.
+They autoplay muted and loop, with a "Watch with sound" button that restarts the film with audio (`src/_includes/video.njk`). To replace a film, drop the new file in with the same name; keep it H.264/AAC and under about 15 MB (the current four are 1–3.5 MB). To put a video anywhere else, set `vSrc`, `vPoster`, `vLabel` (and `vSquare` for a square cut) and `{% include "video.njk" %}`. If a 16:9 cut of the hero film is made later, drop it in as `ampersand-hero.mp4`, point `ampersand.video` in `src/_data/site.json` at it, and set `vSquare = false` in the hero of `src/ampersand.njk`.
 
 ## Switching Ampersand on
 
@@ -92,7 +92,7 @@ The strapline on the page is the web/email version from the strapline system: "A
 
 The 22 logos from the old site were captured from it at web resolution. The others were taken from each organisation's own website. For print-quality use, ask each organisation for their logo file and drop it in with the same filename. Four organisations have no logo file yet: Action Against AMD, Ethical Gambling Forum, Grassrootz Youth CIC and Montgomeryshire Community Regeneration Association.
 
-Permission: an organisation's logo on your site implies they are happy to be named as a client. The 22 from the old site were already public; the additions (5 On It, New Dawn New Day, Penny Brohn UK, Junior Sports Hub, Code 7, Chelmsford City FC Foundation, Margate FC Community Trust, Birmingham Community Boxing Project) are organisations you have worked with per our notes. Check each is happy before launch, and remove any that isn't from `clients.json`.
+Permission: all the organisations listed were cleared for use on 4 October 2026. If one later asks to be removed, delete its line from `clients.json`.
 
 ## Case-study PDFs
 
@@ -100,7 +100,6 @@ Permission: an organisation's logo on your site implies they are happy to be nam
 
 ## Before you go live: things to confirm
 
-- **Client logos.** See the Client logos section above: confirm the eight additions are happy to be shown.
 - **"Thirty years."** The current site says "over 25 years". The new site says thirty, from your own description. Pick one.
 - **Privacy and Terms.** Rewritten for a consultancy that sells downloads. The old privacy policy was copied from a treatment provider (it mentioned care plans and residential places) and named jemma@social-intent.com as the data contact; the new one uses hello@. Have someone check both pages.
 - **Contact details.** `src/_data/site.json` holds the phone number (0161 870 5544), email, Calendly link and address. Check them.
