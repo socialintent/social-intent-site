@@ -1,11 +1,13 @@
-<article class="guide{% if g.data.status != 'available' %} guide-soon{% endif %}">
+{# A guide is only buyable when it is marked available AND has a real Payhip link (not the REPLACE placeholder). #}
+{% set ready = g.data.status == 'available' and g.data.payhip and ('REPLACE' not in g.data.payhip) %}
+<article class="guide{% if not ready %} guide-soon{% endif %}">
   <div class="guide-book" aria-hidden="true"><span>{{ g.data.title }}</span></div>
   <div class="guide-info">
     <span class="guide-kind">{{ g.data.kind }} · {{ g.data.pages }} pages</span>
     <h3>{{ g.data.title }}</h3>
     <p>{{ g.data.summary }}</p>
     <p class="small">For {{ g.data.audience }}</p>
-    {% if g.data.status == 'available' %}
+    {% if ready %}
     <span class="guide-price">{{ (g.data.price or site.guidePrice) | money }}<span>or free when you book a call</span></span>
     <div class="guide-actions">
       <a class="btn btn-yellow btn-small btn-plain payhip-buy-button" href="{{ g.data.payhip or site.payhipStore }}" data-theme="none" data-product="{{ g.data.payhipId }}" rel="noopener">Buy the PDF</a>

@@ -171,7 +171,7 @@ permalink: index.html
       <p>Practical, plain-English guides from our client work. {{ site.guidePrice | money }} each as a PDF, or free when you book a call with us.</p>
     </div>
     <div class="guides">
-      {% for g in collections.resources | where('status', 'available') | limit(3) %}{% include "guide-card.njk" %}{% endfor %}
+      {% for g in collections.resources | limit(3) %}{% include "guide-card.njk" %}{% endfor %}
     </div>
     <p style="margin-top:2rem"><a class="arrow-link" href="{{ root }}guides.html">All guides</a></p>
   </div>
