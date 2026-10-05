@@ -23,7 +23,7 @@ netlify.toml, src/_redirects   ← hosting config and redirects from the old Wor
 
 ## Hosting it (about an hour, once)
 
-The site lives at github.com/SocialIntent/social-intent-site and is published by Netlify (project name `social-intent`, at social-intent.netlify.app until the domain is switched). Every push to the `main` branch rebuilds the site in about a minute. Netlify calls a site a "project" in its menus.
+The site lives at github.com/SocialIntent/social-intent-site and is published by Netlify (project name `social-intent`, at www.social-intent.com, with social-intent.netlify.app still working as a backup address). Every push to the `main` branch rebuilds the site in about a minute. Netlify calls a site a "project" in its menus.
 
 1. **GitHub.** The repository is already there. Changes get in either through the `/admin/` editing screen (which saves to GitHub for you) or by asking Claude to push them.
 2. **Netlify.** Already imported, with build command `npm run build` and publish directory `_site` from `netlify.toml`. New projects start locked to team members: **Project configuration → Access & security → Site protection → Public**.
@@ -32,7 +32,7 @@ The site lives at github.com/SocialIntent/social-intent-site and is published by
    - In Netlify: **Project configuration → Security → OAuth → Install provider → GitHub**, paste the Client ID and Client secret, save.
    - Open `/admin/`, click **Login with GitHub**, authorise. Anyone who should edit the site needs a GitHub account with write access to the repository.
 4. **Contact form.** In Netlify: **Forms → Enable form detection**, then **Deploys → Trigger deploy → Deploy project**. Add your email under **Forms → Form notifications**. Free plan: 100 submissions a month.
-5. **Domain.** When ready: **Domain management → Add a domain → social-intent.com**, keeping DNS at Fasthosts. Then at Fasthosts change the A record for `@` to the IP Netlify shows (75.2.60.5 at the time of writing) and `www` to a CNAME for `social-intent.netlify.app`. Leave the MX and TXT records alone: they are Microsoft 365 email. Netlify adds HTTPS itself. The `_redirects` file sends the old WordPress addresses to the new pages so Google rankings and old links keep working.
+5. **Domain (done 5 Oct 2026).** The steps were: **Domain management → Add a domain → social-intent.com**, keeping DNS at Fasthosts. Then at Fasthosts change the A record for `@` to the IP Netlify shows (75.2.60.5 at the time of writing) and `www` to a CNAME for `social-intent.netlify.app`. Leave the MX and TXT records alone: they are Microsoft 365 email. Netlify adds HTTPS itself. The `_redirects` file sends the old WordPress addresses to the new pages so Google rankings and old links keep working.
 
 ## Adding content
 
