@@ -5,8 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{% if title and title != site.name %}{{ title }} | {{ site.name }}{% else %}{{ site.name }} | {{ site.tagline }}{% endif %}</title>
 <meta name="description" content="{{ description or site.description }}">
+<meta name="google-site-verification" content="DcTTHm7UbmPBXf8R1H7MH9ZywmlhRRmiCQgvxpGNLyo" />
 {% if noindex or (bodyClass == "amp-page" and not site.ampersand.listed) %}<meta name="robots" content="noindex, nofollow">{% endif %}
-<link rel="canonical" href="{{ site.url }}/{{ page.url | replace('/', '') }}">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
 <link rel="icon" href="{{ root }}assets/img/favicon.svg" type="image/svg+xml">
 <meta property="og:title" content="{{ title or site.name }}">
 <meta property="og:description" content="{{ description or site.description }}">
