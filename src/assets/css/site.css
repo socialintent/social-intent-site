@@ -215,12 +215,21 @@ p { margin: 0 0 1em; }
 
 /* Clarity: noise → light ---------------------------------------------------- */
 .clarity { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); background: var(--black); }
-.clarity-noise { position: relative; min-height: 380px; background: var(--yellow) url("../img/data-pattern.jpg") center/cover; }
+.clarity-noise { position: relative; min-height: 380px; background: var(--yellow); overflow: hidden; --lens: 118px; }
+.cn-blur { position: absolute; inset: 0; filter: blur(3.5px); opacity: .5; -webkit-mask-image: radial-gradient(circle calc(var(--lens) + 6px) at 56% 48%, transparent 98%, #000 100%); mask-image: radial-gradient(circle calc(var(--lens) + 6px) at 56% 48%, transparent 98%, #000 100%); }
+.cn-focus { position: absolute; left: 56%; top: 48%; width: calc(var(--lens) * 2); height: calc(var(--lens) * 2); transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: var(--black); }
+.cn-small { font-family: var(--font-display); font-weight: 700; font-size: clamp(.7rem, 1.1vw, .85rem); letter-spacing: .14em; text-transform: uppercase; }
+.cn-big { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.2rem, 4vw, 3.2rem); letter-spacing: -.02em; line-height: 1.05; }
+.cw { position: absolute; font-family: var(--font-display); font-weight: 700; color: var(--black); white-space: nowrap; line-height: 1; }
+.w-xl { font-size: clamp(2.6rem, 5vw, 4.2rem); } .w-l { font-size: clamp(1.8rem, 3.4vw, 2.8rem); } .w-m { font-size: clamp(1rem, 1.6vw, 1.3rem); letter-spacing: .08em; text-transform: uppercase; }
+.w-hand { font-family: var(--font-hand, "Pink Champagne", cursive); font-weight: 400; font-size: clamp(1.6rem, 3vw, 2.4rem); }
+.cn-ring { position: absolute; left: 56%; top: 48%; width: calc(var(--lens) * 2); height: calc(var(--lens) * 2); transform: translate(-50%, -50%); border: 3px solid var(--black); border-radius: 50%; pointer-events: none; }
+@media (prefers-reduced-motion: no-preference) { .cn-ring { animation: cn-pulse 4s ease-in-out infinite; } @keyframes cn-pulse { 50% { transform: translate(-50%, -50%) scale(1.03); } } }
 .clarity-noise .handwritten { position: absolute; left: 8%; bottom: 10%; font-size: clamp(2.2rem, 4vw, 3.4rem); transform: rotate(-5deg); z-index: 1; }
 .clarity-text { background: var(--black); color: var(--paper); padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 5vw, 4.5rem); display: flex; flex-direction: column; justify-content: center; }
 .clarity-text h2 { max-width: 14ch; }
 .clarity-text .lead { color: var(--grey-light); margin-bottom: 0; }
-@media (max-width: 760px) { .clarity { grid-template-columns: minmax(0, 1fr); } .clarity-noise { min-height: 260px; } }
+@media (max-width: 760px) { .clarity { grid-template-columns: minmax(0, 1fr); } .clarity-noise { min-height: 300px; --lens: 90px; } }
 
 /* Bento services ------------------------------------------------------------ */
 .bento { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 1rem; }
