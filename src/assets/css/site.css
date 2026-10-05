@@ -550,3 +550,7 @@ p { margin: 0 0 1em; }
 .loop-band { background: #0b0b0b; overflow: hidden; border-block: 1px solid var(--ink-line); }
 .loop-video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; max-height: 70vh; object-fit: cover; }
 .loop-caption { margin: 0; padding: clamp(1rem, 3vw, 1.75rem) 1rem clamp(1.25rem, 3.5vw, 2.25rem); text-align: center; color: var(--paper); font-family: var(--font-display); font-weight: 600; font-size: clamp(1.1rem, 2.4vw, 1.8rem); letter-spacing: -.01em; }
+
+/* One call-to-action at the bottom, not two: pages that end with the yellow band skip the footer's repeat */
+body:has(.cta-band) .footer-top { display: none; }
+body:has(.cta-band) .site-footer { padding-top: clamp(2.5rem, 5vw, 4rem); }
