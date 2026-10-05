@@ -225,7 +225,7 @@ p { margin: 0 0 1em; }
 .w-hand { font-family: var(--font-hand, "Pink Champagne", cursive); font-weight: 400; font-size: clamp(1.6rem, 3vw, 2.4rem); }
 .cn-ring { position: absolute; left: 56%; top: 48%; width: calc(var(--lens) * 2); height: calc(var(--lens) * 2); transform: translate(-50%, -50%); border: 3px solid var(--black); border-radius: 50%; pointer-events: none; }
 @media (prefers-reduced-motion: no-preference) { .cn-ring { animation: cn-pulse 4s ease-in-out infinite; } @keyframes cn-pulse { 50% { transform: translate(-50%, -50%) scale(1.03); } } }
-.clarity-noise .handwritten { position: absolute; left: 8%; bottom: 10%; font-size: clamp(2.2rem, 4vw, 3.4rem); transform: rotate(-5deg); z-index: 1; }
+.clarity-noise .handwritten { position: absolute; left: 7%; bottom: 7%; font-size: clamp(3.2rem, 6.2vw, 5.2rem); transform: rotate(-5deg); z-index: 1; }
 .clarity-text { background: var(--black); color: var(--paper); padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 5vw, 4.5rem); display: flex; flex-direction: column; justify-content: center; }
 .clarity-text h2 { max-width: 14ch; }
 .clarity-text .lead { color: var(--grey-light); margin-bottom: 0; }
