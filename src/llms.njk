@@ -1,0 +1,33 @@
+---
+permalink: llms.txt
+eleventyExcludeFromCollections: true
+---
+# {{ site.name }}
+
+> {{ site.description }}
+
+Social Intent Limited is a consultancy led by {{ site.founder }}, based in North Wales (registered at St Asaph, Denbighshire) and working with charities, foundations, sports clubs and companies across the UK. Tagline: "{{ site.tagline }}" Contact: {{ site.email }}, {{ site.phone }}. Book a free 30-minute call: {{ site.calendly }}
+
+## Who it is for
+- [Charities, foundations and clubs]({{ site.url }}/charities): strategic reviews, Theory of Change, impact frameworks, income strategy, governance and trading structures.
+- [Companies]({{ site.url }}/companies): social value strategy, measurement and charity partnerships that win business.
+
+## How it works
+- [How we work]({{ site.url }}/how-we-work): the Strategic Insight Model and the critical-friend principles behind every report.
+- [About {{ site.founder }}]({{ site.url }}/about): thirty years as a charity chief executive, marketing director, fundraiser, trustee and adviser.
+
+## Evidence and ideas
+- [Case studies]({{ site.url }}/work): client work with approved quotes.
+{%- for p in collections.work %}
+  - [{{ p.data.title | safe }}]({{ site.url }}{{ p.url | replace(".html", "") }}): {{ p.data.description | safe }}
+{%- endfor %}
+- [Insights]({{ site.url }}/insights): short pieces on charity strategy, impact, income and social value.
+{%- for p in collections.insights %}
+  - [{{ p.data.title | safe }}]({{ site.url }}{{ p.url | replace(".html", "") }}): {{ p.data.description | safe }}
+{%- endfor %}
+
+## Guides (PDF, {{ site.guidePrice | money }} each, free when you book a call)
+{%- for g in collections.resources %}{% if g.data.status == 'available' and g.data.payhip and ('REPLACE' not in g.data.payhip) %}
+- [{{ g.data.title | safe }}]({{ g.data.payhip }}): {{ g.data.summary | safe }}
+{%- endif %}{% endfor %}
+- [All guides]({{ site.url }}/guides)

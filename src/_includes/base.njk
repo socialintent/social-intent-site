@@ -3,22 +3,98 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>{% if title and title != site.name %}{{ title }} | {{ site.name }}{% else %}{{ site.name }} | {{ site.tagline }}{% endif %}</title>
-<meta name="description" content="{{ description or site.description }}">
+{% set canonPath = page.url | replace('.html', '') %}
+{% set seoTitleText %}{% if titleFull %}{{ titleFull }}{% elif seoTitle %}{{ seoTitle }} | {{ site.name }}{% elif title and title != site.name %}{{ title }} | {{ site.name }}{% else %}{{ site.name }} | {{ site.tagline }}{% endif %}{% endset %}
+{% set seoDesc = description or site.description %}
+{% set ogImage = site.url + "/assets/img/og-default.png" %}
+<title>{{ seoTitleText | trim }}</title>
+<meta name="description" content="{{ seoDesc }}">
 <meta name="google-site-verification" content="DcTTHm7UbmPBXf8R1H7MH9ZywmlhRRmiCQgvxpGNLyo" />
-{% if noindex or (bodyClass == "amp-page" and not site.ampersand.listed) %}<meta name="robots" content="noindex, nofollow">{% endif %}
-<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+{% if noindex or (bodyClass == "amp-page" and not site.ampersand.listed) %}<meta name="robots" content="noindex, nofollow">{% else %}<meta name="robots" content="index, follow, max-image-preview:large">{% endif %}
+<link rel="canonical" href="{{ site.url }}{{ canonPath }}">
 <link rel="icon" href="{{ root }}assets/img/favicon.svg" type="image/svg+xml">
-<meta property="og:title" content="{{ title or site.name }}">
-<meta property="og:description" content="{{ description or site.description }}">
-<meta property="og:type" content="website">
+<meta property="og:title" content="{{ seoTitleText | trim }}">
+<meta property="og:description" content="{{ seoDesc }}">
+<meta property="og:type" content="{% if page.url.indexOf('/insights/') == 0 or page.url.indexOf('/work/') == 0 %}article{% else %}website{% endif %}">
+<meta property="og:url" content="{{ site.url }}{{ canonPath }}">
 <meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="{{ ogImage }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Social Intent. For growth. For good.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ seoTitleText | trim }}">
+<meta name="twitter:description" content="{{ seoDesc }}">
+<meta name="twitter:image" content="{{ ogImage }}">
 <meta name="theme-color" content="#000000">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Source+Sans+3:wght@400;600;700&family=Sacramento&display=swap">
 {% if sora or site.ampersand.listed or preview %}<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap">{% endif %}
 <link rel="stylesheet" href="{{ root }}assets/css/site.css">
+{# Structured data: the organisation and website on every page, plus article or person data where it applies #}
+{% set orgId = site.url + "/#organization" %}
+{% set personId = site.url + "/about#matthew-hickey" %}
+{% set orgNode = {
+  "@type": ["Organization", "ProfessionalService"],
+  "@id": orgId,
+  "name": site.name,
+  "legalName": "Social Intent Limited",
+  "url": site.url + "/",
+  "logo": site.url + "/assets/img/si-logo-main-black-yellow.svg",
+  "image": site.url + "/assets/img/og-default.png",
+  "slogan": site.tagline,
+  "description": site.description,
+  "email": site.email,
+  "telephone": site.phoneHref,
+  "foundingDate": "2024",
+  "founder": { "@id": personId },
+  "address": { "@type": "PostalAddress", "streetAddress": "Unit 32, Llys Edmund Prys, St Asaph Business Park", "addressLocality": "St Asaph", "postalCode": "LL17 0JA", "addressCountry": "GB" },
+  "areaServed": { "@type": "Country", "name": "United Kingdom" },
+  "vatID": "GB458445168",
+  "identifier": { "@type": "PropertyValue", "propertyID": "Companies House number", "value": site.companyNumber },
+  "knowsAbout": ["Charity strategy", "Theory of Change", "Impact measurement", "Social value", "Charity trading subsidiaries", "Charities SORP", "Corporate and charity partnerships", "Fundraising and income strategy"],
+  "sameAs": [site.linkedin, site.instagram, site.payhipStore],
+  "contactPoint": { "@type": "ContactPoint", "contactType": "enquiries", "email": site.email, "telephone": site.phoneHref, "areaServed": "GB", "availableLanguage": ["en", "cy"] }
+} %}
+{% set siteNode = { "@type": "WebSite", "@id": site.url + "/#website", "url": site.url + "/", "name": site.name, "inLanguage": "en-GB", "publisher": { "@id": orgId } } %}
+{% set personNode = {
+  "@type": "Person",
+  "@id": personId,
+  "name": site.founder,
+  "url": site.url + "/about",
+  "image": site.url + "/assets/img/matthew.jpg",
+  "jobTitle": "Founder",
+  "description": "Founder of Social Intent, with thirty years in and around charities as a chief executive, marketing director, fundraiser, trustee and adviser.",
+  "worksFor": { "@id": orgId },
+  "knowsAbout": ["Charity strategy", "Impact measurement", "Social value", "Fundraising"],
+  "sameAs": [site.linkedin]
+} %}
+{% set graph = [orgNode, siteNode, personNode] %}
+{% if page.url.indexOf('/insights/') == 0 or page.url.indexOf('/work/') == 0 %}
+{% set articleNode = {
+  "@type": "Article",
+  "@id": site.url + canonPath + "#article",
+  "headline": title,
+  "description": seoDesc,
+  "mainEntityOfPage": site.url + canonPath,
+  "datePublished": (page.date | isoDate),
+  "dateModified": (page.date | isoDate),
+  "inLanguage": "en-GB",
+  "image": ogImage,
+  "author": { "@id": personId },
+  "publisher": { "@id": orgId }
+} %}
+{% set graph = (graph.push(articleNode), graph) %}
+{% endif %}
+{% if faq %}
+{% set faqItems = [] %}
+{% for q in faq %}{% set faqItems = (faqItems.push({ "@type": "Question", "name": q.q, "acceptedAnswer": { "@type": "Answer", "text": q.a } }), faqItems) %}{% endfor %}
+{% set graph = (graph.push({ "@type": "FAQPage", "@id": site.url + canonPath + "#faq", "mainEntity": faqItems }), graph) %}
+{% endif %}
+{% if extraLd %}{% for n in extraLd %}{% set graph = (graph.push(n), graph) %}{% endfor %}{% endif %}
+<script type="application/ld+json">{{ { "@context": "https://schema.org", "@graph": graph } | dump | safe }}</script>
 </head>
 <body class="{{ bodyClass }}">
 <a class="skip" href="#main">Skip to content</a>

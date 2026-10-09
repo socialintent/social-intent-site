@@ -1,5 +1,7 @@
 ---
 title: From strong delivery to a clear case
+seoDescription: "How a youth charity with strong delivery and real demand got a clear case for support that links what it does to the story funders read."
+seoTitle: "Charity case for support: 5 On It Foundation"
 client: 5 On It Foundation, Milton Keynes
 order: 3
 sector: Children and young people

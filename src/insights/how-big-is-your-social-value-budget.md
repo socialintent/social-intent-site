@@ -1,5 +1,6 @@
 ---
 title: How big is your social value budget?
+seoDescription: "Your largest social value budget may not be your charity budget. It may be your procurement budget. How businesses can direct more of their spend to local good."
 date: 2026-08-27
 summary: Your largest social value budget may not be your charity budget. It may be your procurement budget.
 ---

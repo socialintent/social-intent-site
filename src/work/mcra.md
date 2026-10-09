@@ -1,5 +1,7 @@
 ---
 title: When a charity stands still
+seoDescription: "How insight-led research helped a Mid Wales charity stuck for twenty years choose a new name, sell its property and become a grant-giving foundation."
+seoTitle: "Charity repositioning case study: MCRA"
 client: Montgomeryshire Community Regeneration Association, Mid Wales
 order: 2
 sector: Community regeneration

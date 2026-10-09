@@ -7,3 +7,23 @@
 /how-big-is-your-social-value-budget/                   /insights/how-big-is-your-social-value-budget.html  301
 /privacy-policy/          /privacy.html         301
 /terms-conditions/        /terms.html           301
+
+# Clean URLs: the .html versions permanently redirect to the extensionless address (one address per page for Google)
+/about.html  /about  301!
+/ampersand.html  /ampersand  301!
+/charities.html  /charities  301!
+/companies.html  /companies  301!
+/contact.html  /contact  301!
+/guides.html  /guides  301!
+/how-we-work.html  /how-we-work  301!
+/insights.html  /insights  301!
+/insights/can-we-sometimes-be-bolder-in-our-ask.html  /insights/can-we-sometimes-be-bolder-in-our-ask  301!
+/insights/does-closing-your-shop-cost-more-than-it-saves.html  /insights/does-closing-your-shop-cost-more-than-it-saves  301!
+/insights/how-big-is-your-social-value-budget.html  /insights/how-big-is-your-social-value-budget  301!
+/privacy.html  /privacy  301!
+/terms.html  /terms  301!
+/work.html  /work  301!
+/work/5-on-it-foundation.html  /work/5-on-it-foundation  301!
+/work/mcra.html  /work/mcra  301!
+/work/new-dawn-new-day.html  /work/new-dawn-new-day  301!
+/index.html  /  301!

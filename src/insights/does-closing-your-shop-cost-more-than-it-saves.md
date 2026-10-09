@@ -1,5 +1,6 @@
 ---
 title: Could closing your doors cost more than it saves?
+seoDescription: "The financial case for closing a charity shop, office or community space can look simple. The value of being visible is harder to count, and easy to lose."
 date: 2026-08-27
 summary: The financial case for closing a shop, office or community space can look simple. The value of being visible is harder to count, and easy to lose.
 ---

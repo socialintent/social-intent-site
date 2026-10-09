@@ -1,8 +1,16 @@
 ---
 layout: base.njk
 title: Guides
-description: Practical PDF guides from Social Intent's work with charities and companies. £20 each, or free when you book a call.
+seoTitle: "Practical guides for charities and companies"
+description: Practical PDF guides on charity structures, the new SORP, athlete legacy and social value. £20 each, or free when you book a call with Social Intent.
 permalink: guides.html
+faq:
+  - { q: "What format are the guides?", a: "Multi-page PDFs you can read on screen or print. You get a download link straight after purchase." }
+  - { q: "Can I share one with my team or board?", a: "Yes, within your own organisation. Please don't republish or resell it." }
+  - { q: "Do prices include VAT?", a: "Yes. Prices shown include VAT at the applicable rate, and your receipt comes from Payhip." }
+  - { q: "Can I get a refund?", a: "Because the guides are delivered instantly as downloads, we can't refund once a file has been downloaded. If there's a problem with your file, email hello@social-intent.com and we'll put it right." }
+  - { q: "What if I need more than a guide?", a: "That's what the call is for. Tell us what you're working on and we'll talk it through, with no obligation." }
+  - { q: "Can my organisation buy several?", a: "Yes. Email us for an invoice if that's easier than paying by card." }
 ---
 {% set heroEyebrow = "Guides" %}
 {% set heroTitle = "Practical guides for <em>doing good well.</em>" %}
@@ -51,3 +59,10 @@ permalink: guides.html
 </section>
 
 {% include "cta.njk" %}
+
+{# Product data for each guide that is really on sale #}
+{% set ldProducts = [] %}
+{% for g in collections.resources %}{% if g.data.status == 'available' and g.data.payhip and ('REPLACE' not in g.data.payhip) %}
+{% set ldProducts = (ldProducts.push({ "@type": "Product", "name": g.data.title, "description": g.data.summary, "brand": { "@type": "Brand", "name": site.name }, "category": "Digital guide (PDF)", "image": site.url + "/assets/img/og-default.png", "url": site.url + "/guides", "offers": { "@type": "Offer", "price": (g.data.price or site.guidePrice), "priceCurrency": "GBP", "availability": "https://schema.org/InStock", "url": g.data.payhip, "seller": { "@id": site.url + "/#organization" } } }), ldProducts) %}
+{% endif %}{% endfor %}
+{% if ldProducts.length %}<script type="application/ld+json">{{ { "@context": "https://schema.org", "@graph": ldProducts } | dump | safe }}</script>{% endif %}

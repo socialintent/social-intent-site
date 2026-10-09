@@ -1,5 +1,8 @@
 {
   "layout": "post.njk",
   "tags": ["insights"],
-  "permalink": "insights/{{ page.fileSlug }}.html"
+  "permalink": "insights/{{ page.fileSlug }}.html",
+  "eleventyComputed": {
+    "description": "{{ (seoDescription or summary) | safe }}"
+  }
 }

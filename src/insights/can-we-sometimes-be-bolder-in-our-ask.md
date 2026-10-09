@@ -1,5 +1,6 @@
 ---
 title: Can we sometimes be bolder in our ask?
+seoDescription: "Charities often ask businesses for a cheque. A company can usually offer far more, and a stronger conversation starts with the change your community needs."
 date: 2026-08-27
 summary: Charities often ask businesses for a cheque. A company can usually offer far more, and a stronger conversation starts with the change your community needs.
 ---

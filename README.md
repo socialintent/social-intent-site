@@ -76,6 +76,16 @@ That one change adds Ampersand to the menu and footer, puts the film and the "10
 
 The strapline on the page is the web/email version from the strapline system: "A room to meet, learn, and back each other's aims."
 
+## Search and AI visibility (SEO, AEO, GEO)
+
+Done in the templates, so every new page gets it automatically:
+
+- **One address per page.** Pages use clean URLs (`/about`, not `/about.html`); the canonical tag, sitemap and social tags all say so, and `src/_redirects` sends the old `.html` addresses to the clean ones. The thank-you page is deliberately left alone because the contact form posts to it.
+- **Titles and descriptions.** Each page has its own `seoTitle` (shown as "Title | Social Intent") and `description` in its front matter. Case studies take `seoTitle` and `seoDescription`; insights take `seoDescription` (or fall back to `summary`). Keep titles to about 60 characters and descriptions to 150-160.
+- **Structured data (JSON-LD).** Organisation, website and founder on every page; Article on insights and case studies; FAQ and Product (price, Payhip link) on the Guides page, built from the real guide files, so a guide only appears there once it is truly on sale. The FAQ answers live in the `faq:` list at the top of `src/guides.njk`.
+- **Social sharing.** Open Graph and Twitter tags with a branded preview image (`src/assets/img/og-default.png`, 1200×630).
+- **`/sitemap.xml`, `/robots.txt`, `/llms.txt`.** All rebuilt on every publish. `llms.txt` is a plain summary for AI assistants and lists the case studies, insights and guides on sale.
+
 ## Brand notes
 
 - Colours and fonts follow the Social Intent Brand Book (yellow `#FEDB00`, black, white; Josefin Sans for headings, Source Sans for reading, the handwritten script for annotations). The layout deliberately bends one Brand Book rule: it uses black as a background for the hero, the footer and several sections, alternating black / yellow / white blocks, because the modern consulting sites it was benchmarked against are dark and high-contrast. If you'd rather stay white-first, the sections are classed `on-black`, `on-yellow` and `on-soft` in the templates, so swapping is a find-and-replace.

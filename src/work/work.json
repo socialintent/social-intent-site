@@ -1,5 +1,8 @@
 {
   "layout": "case-study.njk",
   "tags": ["work"],
-  "permalink": "work/{{ page.fileSlug }}.html"
+  "permalink": "work/{{ page.fileSlug }}.html",
+  "eleventyComputed": {
+    "description": "{{ (seoDescription or summary) | safe }}"
+  }
 }

@@ -1,5 +1,7 @@
 ---
 title: Driving with the brakes on
+seoDescription: "A twelve-week strategic review for a busy but stuck women's charity: 13 stakeholders, 74 documents, and six decisions ready for the board to minute."
+seoTitle: "Charity strategic review: New Dawn New Day"
 client: New Dawn New Day, Leicester
 order: 1
 sector: Women's charity
