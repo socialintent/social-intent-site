@@ -18,6 +18,13 @@ export default function (eleventyConfig) {
     api.getFilteredByGlob("src/resources/*.md").sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99))
   );
 
+  // Guides that are really on sale (status available and a real Payhip link) get their own page
+  eleventyConfig.addCollection("guidesLive", (api) =>
+    api.getFilteredByGlob("src/resources/*.md")
+      .filter((g) => g.data.status === "available" && g.data.payhip && !g.data.payhip.includes("REPLACE"))
+      .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99))
+  );
+
   // Filters
   eleventyConfig.addFilter("readableDate", (d) =>
     new Date(d).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })

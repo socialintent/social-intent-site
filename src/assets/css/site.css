@@ -563,3 +563,11 @@ p { margin: 0 0 1em; }
 /* One call-to-action at the bottom, not two: pages that end with the yellow band skip the footer's repeat */
 body:has(.cta-band) .footer-top { display: none; }
 body:has(.cta-band) .site-footer { padding-top: clamp(2.5rem, 5vw, 4rem); }
+
+/* Q&A blocks (guide pages and Straight answers) */
+.qa-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 3rem; }
+.qa h3 { font-size: 1.2rem; margin-bottom: .35em; }
+.qa p { margin: 0 0 .6em; }
+.qa-list .qa { margin-bottom: 1.4rem; }
+.qa-list .qa h3 { font-size: 1.15rem; margin-top: 0; }
+@media (max-width: 700px) { .qa-grid { grid-template-columns: minmax(0, 1fr); } }

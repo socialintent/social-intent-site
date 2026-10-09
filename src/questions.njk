@@ -1,0 +1,99 @@
+---
+layout: base.njk
+title: Straight answers
+titleFull: "Charity strategy, impact and social value: straight answers | Social Intent"
+description: "Plain answers to common questions on charity structures, trading, the Charities SORP 2026, Theory of Change, impact claims, social value and athlete legacy."
+permalink: questions.html
+groups:
+  - title: "Charity structures and trading"
+    items:
+      - q: "Should a charity be a CIO or a company limited by guarantee?"
+        a: "For a new or small-to-medium operational charity in England and Wales led by its trustees, a Foundation CIO is usually the simplest choice: one regulator, limited liability and a constitution written for charities. A charitable company limited by guarantee suits larger, contract-heavy or borrowing charities, and those working in more than one UK nation."
+        href: "guides/charity-structures-decision-guide.html"
+        more: "Charity structures and trading subsidiaries guide"
+      - q: "Should we be a charity or a Community Interest Company?"
+        a: "If the purposes are charitable and the tax reliefs would be material, be a charity. A CIC gets no Gift Aid or mandatory business rates relief and pays corporation tax, but its directors can be paid and a founder can stay in control. Choose a CIC only where that freedom is the point, and be honest about the trade-off."
+        href: "guides/charity-structures-decision-guide.html"
+        more: "Charity structures and trading subsidiaries guide"
+      - q: "How much can a charity trade before it needs a trading subsidiary?"
+        a: "Trading that advances your purposes, or is ancillary to them, can stay inside the charity. For other trading, HMRC's small-trading exemption allows up to £8,000 of turnover if income is under £32,000, 25% of income between £32,000 and £320,000, and £80,000 above that. The tests use turnover, not profit, and check HMRC's current figures before relying on them."
+        href: "guides/charity-structures-decision-guide.html"
+        more: "Charity structures and trading subsidiaries guide"
+  - title: "Reporting and the Charities SORP 2026"
+    items:
+      - q: "What does the Charities SORP 2026 change for trustees?"
+        a: "The trustees' annual report now asks what difference the charity made, not only what it did. Tier 1 charities (income up to £500,000) must summarise main achievements and should consider the difference made. Tier 2 and 3 must explain their impact and consider long-term effects. It applies to reporting periods beginning on or after 1 January 2026."
+        href: "guides/ready-for-sorp.html"
+        more: "Ready for the new SORP guide"
+      - q: "What is the difference between outputs, outcomes and impact?"
+        a: "Outputs are what you delivered, such as the number of people supported. Outcomes are the changes you can show in those people. Impact is the wider, longer-term difference your work contributed to. Funders and the SORP want you to move from counting outputs to showing what changed."
+        href: "guides/ready-for-sorp.html"
+        more: "Ready for the new SORP guide"
+      - q: "What impact claims should a charity avoid?"
+        a: "Outputs presented as impact, attribution without a comparison, percentages without the response rate, social return ratios without their assumptions, and long-term change without follow-up evidence. Label what you measured, what you observed and what you believe, and say what you cannot yet show."
+        href: "guides/ready-for-sorp.html"
+        more: "Ready for the new SORP guide"
+  - title: "Strategy and impact"
+    items:
+      - q: "What is a Theory of Change?"
+        a: "A Theory of Change sets out how and why your activities are expected to lead to the change you want: from purpose, to activities, to outcomes, to evidence. Used well, it becomes the spine of your strategy, your impact measurement and your case for funding, not a diagram for the filing cabinet."
+        href: "how-we-work.html"
+        more: "How we work"
+      - q: "Why would a charity bring in an outside critical friend?"
+        a: "Boards and leadership teams are close to the work, and the people best placed to tell them uncomfortable things often cannot. An independent adviser who has been a chief executive, fundraiser and trustee can test assumptions, show what the evidence does and does not support, and help a board decide with confidence."
+        href: "charities.html"
+        more: "Social Intent for charities"
+      - q: "Is it ever right to be bolder in a funding ask?"
+        a: "Often. Many charities ask for less than the work needs because they fear a refusal, which leaves them under-funded and funders unaware of the real scale of need. A bolder ask works when it is anchored in evidence and a clear account of what the money will change."
+        href: "insights/can-we-sometimes-be-bolder-in-our-ask.html"
+        more: "Can we sometimes be bolder in our ask?"
+  - title: "Social value and corporate partnerships"
+    items:
+      - q: "What is social value in business?"
+        a: "Social value is the wider benefit a company creates for people and communities beyond the product or price: local jobs, skills, fair work, supply chain choices and support for local causes. In public tenders it is scored alongside price and quality, so it needs to be specific, measured and credible."
+        href: "companies.html"
+        more: "Social Intent for companies"
+      - q: "Where is a company's biggest social value budget?"
+        a: "Often not in the charity budget but in procurement. Every purchasing decision shapes where economic opportunity goes: local suppliers, small businesses and social enterprises, and how promptly suppliers are paid. That can affect jobs, skills and resilience far more than a donation can."
+        href: "insights/how-big-is-your-social-value-budget.html"
+        more: "How big is your social value budget?"
+      - q: "How can a company choose a charity partner well?"
+        a: "Start with what the business is genuinely good at and which community needs overlap with it, then look for a charity with evidence of results and the capacity to work with you. Agree outcomes, reporting and how long the partnership will last before any money or publicity is committed."
+        href: "companies.html"
+        more: "Social Intent for companies"
+  - title: "Athlete legacy"
+    items:
+      - q: "Should an athlete set up a foundation?"
+        a: "Not as a first step. The foundation is the most demanding way to deliver a legacy. A gift to an existing charity, a named fund or a partnership often delivers more to the people it is for. Create your own charity only if the purpose is distinct, you will commit for ten years and the funding does not depend on you alone."
+        href: "guides/athlete-legacy.html"
+        more: "Athlete legacy guide"
+---
+{% set heroEyebrow = "Straight answers" %}
+{% set heroTitle = "Straight answers on <em>charity strategy, impact and social value.</em>" %}
+{% set heroLead = "The questions boards, chief executives and company teams ask us most, answered plainly. Each links to the fuller guide or article if you want the detail." %}
+{% set heroNote = "ask us<br>anything" %}
+{% set heroCta = false %}{% set heroLink = false %}{% set heroLinkHref = "" %}
+{% include "page-hero.njk" %}
+
+{% for grp in groups %}
+<section class="block{% if loop.index0 % 2 == 1 %} on-soft{% endif %}">
+  <div class="wrap">
+    <div class="head"><h2>{{ grp.title }}</h2></div>
+    <div class="qa-grid">
+      {% for item in grp.items %}
+      <div class="qa">
+        <h3>{{ item.q }}</h3>
+        <p>{{ item.a }}</p>
+        <p><a class="arrow-link" href="{{ root }}{{ item.href }}">{{ item.more }}</a></p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endfor %}
+
+{% include "cta.njk" %}
+
+{% set allQa = [] %}
+{% for grp in groups %}{% for item in grp.items %}{% set allQa = (allQa.push({ "@type": "Question", "name": item.q, "acceptedAnswer": { "@type": "Answer", "text": item.a } }), allQa) %}{% endfor %}{% endfor %}
+<script type="application/ld+json">{{ { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": allQa } | dump | safe }}</script>

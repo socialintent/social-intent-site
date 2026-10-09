@@ -8,6 +8,7 @@
     <p>{{ g.data.summary }}</p>
     <p class="small">For {{ g.data.audience }}</p>
     {% if ready %}
+    <p class="small"><a class="arrow-link" href="{{ root }}guides/{{ g.fileSlug }}.html">What's inside</a></p>
     <span class="guide-price">{{ (g.data.price or site.guidePrice) | money }}<span>or free when you book a call</span></span>
     <div class="guide-actions">
       <a class="btn btn-yellow btn-small btn-plain payhip-buy-button" href="{{ g.data.payhip or site.payhipStore }}" data-theme="none" data-product="{{ g.data.payhipId }}" rel="noopener">Buy the PDF</a>

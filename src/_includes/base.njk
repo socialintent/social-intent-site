@@ -147,7 +147,7 @@
       <div class="footer-col">
         <h2 class="footer-h">Find your way</h2>
         <ul class="footer-links">
-          {% for item in site.nav %}<li><a href="{{ root }}{{ item.href }}">{{ item.label }}</a></li>{% endfor %}
+          {% for item in site.nav %}<li><a href="{{ root }}{{ item.href }}">{{ item.label }}</a></li>{% endfor %}<li><a href="{{ root }}questions.html">Straight answers</a></li>
           <li><a href="{{ root }}contact.html">Contact</a></li>
           {% if site.ampersand.listed or preview %}<li><a href="{{ root }}ampersand.html">Ampersand</a></li>{% endif %}
         </ul>

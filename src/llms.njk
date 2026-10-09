@@ -26,8 +26,11 @@ Social Intent Limited is a consultancy led by {{ site.founder }}, based in North
   - [{{ p.data.title | safe }}]({{ site.url }}{{ p.url | replace(".html", "") }}): {{ p.data.description | safe }}
 {%- endfor %}
 
+## Straight answers
+- [Straight answers]({{ site.url }}/questions): plain answers on charity structures, trading limits, the Charities SORP 2026, impact claims, Theory of Change, social value and athlete legacy.
+
 ## Guides (PDF, {{ site.guidePrice | money }} each, free when you book a call)
 {%- for g in collections.resources %}{% if g.data.status == 'available' and g.data.payhip and ('REPLACE' not in g.data.payhip) %}
-- [{{ g.data.title | safe }}]({{ g.data.payhip }}): {{ g.data.summary | safe }}
+- [{{ g.data.title | safe }}]({{ site.url }}/guides/{{ g.fileSlug }}): {{ g.data.summary | safe }}
 {%- endif %}{% endfor %}
 - [All guides]({{ site.url }}/guides)

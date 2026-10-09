@@ -75,6 +75,19 @@ collections:
       - { label: Payhip product link, name: payhip, widget: string, required: false, hint: "From Payhip: Products › your product › Share › link, e.g. https://payhip.com/b/AbCd1" }
       - { label: Payhip product ID, name: payhipId, widget: string, required: false, hint: "The code at the end of the link, e.g. AbCd1" }
       - { label: One-line summary, name: summary, widget: text }
+      - { label: Page title for Google, name: seoTitle, widget: string, required: false, hint: "Used on the guide's own page, about 60 characters" }
+      - { label: Page description for Google, name: seoDescription, widget: text, required: false, hint: "About 150 characters" }
+      - { label: Opening line on the guide page, name: lead, widget: text, required: false }
+      - { label: Who it is for (guide page), name: whoFor, widget: text, required: false }
+      - { label: What is inside (guide page), name: inside, widget: list, required: false, field: { label: Item, name: item, widget: string } }
+      - label: Questions and answers (guide page)
+        name: qa
+        widget: list
+        required: false
+        hint: "Short, plain answers of around 40 to 60 words. Shown on the guide page and read by Google and AI tools."
+        fields:
+          - { label: Question, name: q, widget: string }
+          - { label: Answer, name: a, widget: text }
       - { label: Notes (not shown), name: body, widget: markdown, required: false }
 
   - name: settings

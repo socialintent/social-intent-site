@@ -1,0 +1,65 @@
+---
+layout: base.njk
+pagination:
+  data: collections.guidesLive
+  size: 1
+  alias: g
+  addAllPagesToCollections: true
+permalink: "guides/{{ g.fileSlug }}.html"
+eleventyComputed:
+  title: "{{ g.data.title | safe }}"
+  titleFull: "{{ g.data.seoTitle | safe }} | Social Intent"
+  description: "{{ g.data.seoDescription | safe }}"
+---
+{% set heroEyebrow = g.data.kind ~ " · " ~ g.data.pages ~ " pages" %}
+{% set heroTitle = g.data.title %}
+{% set heroLead = g.data.lead %}
+{% set heroNote = "" %}
+{% set heroCta = false %}{% set heroLink = false %}{% set heroLinkHref = "" %}
+{% include "page-hero.njk" %}
+
+<article class="block">
+  <div class="wrap article-grid">
+    <div class="prose">
+      <p class="small"><a class="arrow-link" href="{{ root }}guides.html">All guides</a></p>
+      <h2>What is inside</h2>
+      <ul>
+        {% for item in g.data.inside %}<li>{{ item }}</li>{% endfor %}
+      </ul>
+      <h2>Who it is for</h2>
+      <p>{{ g.data.whoFor }}</p>
+      <h2>What you get</h2>
+      <p>A {{ g.data.pages }}-page PDF you can read on screen or print, delivered as an instant download after purchase. Every finding is labelled as evidence, our interpretation or a decision for your board, so you can see what is fact and what is judgement.</p>
+      <h2>Questions this guide answers</h2>
+      <div class="qa-list">
+        {% for item in g.data.qa %}<div class="qa"><h3>{{ item.q }}</h3><p>{{ item.a }}</p></div>{% endfor %}
+      </div>
+      <p>The guide gives the full reasoning, the numbers and the worksheets behind each of these answers.</p>
+    </div>
+    <aside class="aside">
+      <h2>{{ (g.data.price or site.guidePrice) | money }}</h2>
+      <p>Instant PDF download. Checkout is handled securely by Payhip, and prices include VAT.</p>
+      <p><a class="btn btn-black btn-small payhip-buy-button" href="{{ g.data.payhip }}" data-theme="none" data-product="{{ g.data.payhipId }}" rel="noopener">Buy the PDF</a></p>
+      <h2>Or get it free</h2>
+      <p>Book a free 30-minute call and we will send you this guide afterwards.</p>
+      <p><a class="btn btn-ghost btn-small" href="{{ site.calendly }}" rel="noopener">Book a call</a></p>
+      <h2>More guides</h2>
+      <ul>
+        {% for o in collections.guidesLive %}{% if o.url != g.url %}<li><a class="arrow-link" href="{{ root }}guides/{{ o.fileSlug }}.html">{{ o.data.title }}</a></li>{% endif %}{% endfor %}
+      </ul>
+    </aside>
+  </div>
+</article>
+
+{% include "cta.njk" %}
+
+{% set qaEntities = [] %}
+{% for item in g.data.qa %}{% set qaEntities = (qaEntities.push({ "@type": "Question", "name": item.q, "acceptedAnswer": { "@type": "Answer", "text": item.a } }), qaEntities) %}{% endfor %}
+<script type="application/ld+json">{{ { "@context": "https://schema.org", "@graph": [
+  { "@type": "Product", "name": g.data.title, "description": g.data.seoDescription, "brand": { "@type": "Brand", "name": site.name }, "category": "Digital guide (PDF)", "image": site.url + "/assets/img/og-default.png", "url": site.url + "/guides/" + g.fileSlug, "offers": { "@type": "Offer", "price": (g.data.price or site.guidePrice), "priceCurrency": "GBP", "availability": "https://schema.org/InStock", "url": g.data.payhip, "seller": { "@id": site.url + "/#organization" } } },
+  { "@type": "FAQPage", "mainEntity": qaEntities },
+  { "@type": "BreadcrumbList", "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Guides", "item": site.url + "/guides" },
+    { "@type": "ListItem", "position": 2, "name": g.data.title, "item": site.url + "/guides/" + g.fileSlug }
+  ] }
+] } | dump | safe }}</script>
