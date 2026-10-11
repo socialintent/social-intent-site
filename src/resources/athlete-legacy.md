@@ -13,7 +13,7 @@ summary: A clear-eyed guide to building a legacy that outlasts a career. Define
   it, find your beneficiaries, choose between a gift, a named fund, a
   partnership and a charity of your own, and score your readiness out of 20.
 seoTitle: "Athlete legacy guide: do you need a foundation?"
-seoDescription: "An 11-page PDF guide for athletes, agents and advisers: choose between a gift, named fund, partnership or your own charity, and score your legacy readiness out of 20."
+seoDescription: "An 11-page PDF guide for athletes, agents and advisers: choose a gift, named fund, partnership or your own charity, and score your readiness out of 20."
 lead: "A foundation is one answer, not the question. This guide puts the questions in the right order, so purpose comes before paperwork."
 inside:
   - "How to define the legacy you want, and write it in one sentence"

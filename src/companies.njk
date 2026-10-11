@@ -57,7 +57,7 @@ permalink: companies.html
         <p class="footer-h" style="margin-top:1rem">Companies, funders and regulators we have worked with</p>
         {% set corp = ["Flutter", "GamCare", "Chevron Group", "The Betting and Gaming Council", "Kindbridge", "Aston Villa Foundation", "Foundation for Future London", "Youth Investment Fund", "Altair", "evive"] %}
         <ul class="logo-wall logo-wall-small">
-          {% for c in clients %}{% if c.name in corp and c.logo %}<li class="logo-tile" title="{{ c.name }}"><img src="{{ root }}assets/img/clients/{{ c.logo }}" alt="{{ c.name }}" loading="lazy"></li>{% endif %}{% endfor %}
+          {% for c in clients %}{% if c.name in corp and c.logo %}<li class="logo-tile" title="{{ c.name }}"><img src="/assets/img/clients/{{ c.logo }}" alt="{{ c.name }}" loading="lazy"></li>{% endif %}{% endfor %}
         </ul>
       </div>
     </div>

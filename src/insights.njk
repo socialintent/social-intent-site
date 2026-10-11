@@ -14,6 +14,7 @@ permalink: insights.html
 {% include "page-hero.njk" %}
 <section class="block on-soft">
   <div class="wrap">
+    <h2 class="sr-only">Latest insights</h2>
     <ul class="posts">
       {% for post in collections.insights %}
       <li><a class="post" href="{{ root }}{{ post.url | replace('/', '', 1) }}">
@@ -24,6 +25,17 @@ permalink: insights.html
       </a></li>
       {% endfor %}
     </ul>
+  </div>
+</section>
+<section class="block">
+  <div class="wrap">
+    <div class="head"><h2>Questions these pieces answer</h2></div>
+    <div class="qa-grid">
+      <div class="qa"><h3>Could closing our shop cost more than it saves?</h3><p>It can. A shop or office is also a permanent advertisement, a point of contact and a route to donors and volunteers, but that value rarely shows on the building's accounts. Sometimes closing is the right decision; measure the full value of being visible first. <a href="/insights/does-closing-your-shop-cost-more-than-it-saves">Read the piece</a>.</p></div>
+      <div class="qa"><h3>Should charities ask companies for more than a cheque?</h3><p>Often, yes. A company can offer expertise, buildings, customers, training, purchasing power and networks as well as money. A stronger conversation starts with the change your community needs, and asks what your organisations could do together. <a href="/insights/can-we-sometimes-be-bolder-in-our-ask">Read the piece</a>.</p></div>
+      <div class="qa"><h3>How big is a company's social value budget?</h3><p>Often bigger than its charity budget: its procurement spend. Where a company buys, and how promptly it pays, shapes local jobs and small businesses. <a href="/insights/how-big-is-your-social-value-budget">Read the piece</a>.</p></div>
+      <div class="qa"><h3>Where can I find more answers?</h3><p>On our <a href="/questions">Straight answers</a> page, which covers charity structures, trading limits, the Charities SORP 2026, impact claims and social value.</p></div>
+    </div>
   </div>
 </section>
 {% include "cta.njk" %}

@@ -14,6 +14,7 @@ permalink: work.html
 
 <section class="block on-black" style="border-top:1px solid var(--ink-line)">
   <div class="wrap">
+    <h2 class="sr-only">Case studies</h2>
     <div class="cases">
       {% for cs in collections.work %}
       <a class="case" href="{{ root }}{{ cs.url | replace('/', '', 1) }}">
@@ -55,7 +56,7 @@ permalink: work.html
     <div class="head"><h2>Case studies to download</h2><p>Each one on a few pages, in the same form we send to prospective clients. Share them with your board.</p></div>
     <div class="downloads">
       {% for cs in collections.work %}
-      <a class="download" href="{{ root }}assets/downloads/{{ cs.fileSlug }}.pdf" target="_blank" rel="noopener">
+      <a class="download" href="/assets/downloads/{{ cs.fileSlug }}.pdf" target="_blank" rel="noopener">
         <span class="download-doc" aria-hidden="true"><span class="download-doc-top"></span><span class="download-doc-title">{{ cs.data.title }}</span></span>
         <span class="download-info">
           <span class="case-client">{{ cs.data.client }}</span>

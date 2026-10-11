@@ -2,7 +2,7 @@
 <ul class="logo-wall" aria-label="Organisations we have worked with">
   {% for c in clients %}
   <li class="logo-tile{% if not c.logo %} logo-tile-name{% endif %}" title="{{ c.name }}">
-    {% if c.logo %}<img src="{{ root }}assets/img/clients/{{ c.logo }}" alt="{{ c.name }}" loading="lazy">{% else %}<span>{{ c.name }}</span>{% endif %}
+    {% if c.logo %}<img src="/assets/img/clients/{{ c.logo }}" alt="{{ c.name }}" loading="lazy">{% else %}<span>{{ c.name }}</span>{% endif %}
   </li>
   {% endfor %}
 </ul>

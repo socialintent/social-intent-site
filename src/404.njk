@@ -1,0 +1,26 @@
+---
+layout: base.njk
+title: Page not found
+titleFull: "Page not found | Social Intent"
+description: "That page could not be found. Try our guides, straight answers or contact page."
+permalink: 404.html
+noindex: true
+eleventyExcludeFromCollections: true
+---
+{% set heroEyebrow = "404" %}
+{% set heroTitle = "That page <em>isn't here.</em>" %}
+{% set heroLead = "It may have moved, or the link may be old. These will get you back on track." %}
+{% set heroNote = "oops" %}
+{% set heroCta = "Go to the home page" %}{% set heroCtaHref = "/" %}
+{% set heroLink = "Straight answers" %}{% set heroLinkHref = "/questions" %}
+{% include "page-hero.njk" %}
+<section class="block">
+  <div class="wrap">
+    <h2 class="sr-only">Useful pages</h2>
+    <ul class="posts">
+      <li><a class="post" href="/guides"><h3>Guides</h3><p>Practical PDF guides for charities and companies.</p><span class="arrow-link">See the guides</span></a></li>
+      <li><a class="post" href="/work"><h3>Case studies</h3><p>Client work, in their words and ours.</p><span class="arrow-link">See the work</span></a></li>
+      <li><a class="post" href="/contact"><h3>Contact</h3><p>Book a free 30-minute call.</p><span class="arrow-link">Get in touch</span></a></li>
+    </ul>
+  </div>
+</section>

@@ -12,8 +12,8 @@ payhipId: ""
 summary: CIO, charitable company, CIC or trading subsidiary? Three decisions
   pulled apart, the structures compared, the small-trading rules explained, and
   a recommendation matrix your board can minute.
-seoTitle: "Charity structures guide: CIO, company, CIC or trading subsidiary"
-seoDescription: "A 14-page PDF decision guide to UK charity structures: CIO, charitable company, CIC and trading subsidiaries, with the small-trading limits and a board recommendation matrix."
+seoTitle: "UK charity structures guide: CIO, CIC or subsidiary"
+seoDescription: "A 14-page PDF decision guide to UK charity structures: CIO, charitable company, CIC and trading subsidiaries, with the small-trading limits and a board matrix."
 lead: "Most boards pick a structure by copying the charity next door. This guide pulls three separate decisions apart so you choose on purpose, and can minute why."
 inside:
   - "Charitable status or CIC: what the tax reliefs are worth and what they cost you in control"

@@ -31,11 +31,19 @@ permalink: index.html
   <span class="hero-scroll">Scroll</span>
 </section>
 
+<section class="block-s">
+  <div class="wrap">
+    <h2>What is Social Intent?</h2>
+    <p class="lead" style="max-width:62ch">Social Intent is a UK consultancy led by Matthew Hickey that helps charities, foundations and companies with strategy, impact measurement, social value and charity partnerships. It works as a critical friend: clear on purpose, honest about evidence, and practical about income.</p>
+    <p><a class="arrow-link" href="/questions">Straight answers to common questions</a></p>
+  </div>
+</section>
+
 <div class="marquee" aria-label="Organisations we have worked with">
   <div class="marquee-track">
     {% for pass in [1, 2] %}
     <ul{% if pass == 2 %} aria-hidden="true"{% endif %}>
-      {% for c in clients %}{% if c.logo %}<li><img src="{{ root }}assets/img/clients/{{ c.logo }}" alt="{{ c.name }}" width="150" height="60" decoding="async"></li>{% endif %}{% endfor %}
+      {% for c in clients %}{% if c.logo %}<li><img src="/assets/img/clients/{{ c.logo }}" alt="{{ c.name }}" width="150" height="60" decoding="async"></li>{% endif %}{% endfor %}
     </ul>
     {% endfor %}
   </div>
@@ -89,8 +97,8 @@ permalink: index.html
 </section>
 
 <section class="loop-band" aria-label="Two organisations connecting">
-  <video class="loop-video" autoplay muted loop playsinline preload="metadata" poster="{{ root }}assets/img/connection-poster.jpg" aria-hidden="true">
-    <source src="{{ root }}assets/video/connection-loop.mp4" type="video/mp4">
+  <video class="loop-video" autoplay muted loop playsinline preload="metadata" poster="/assets/img/connection-poster.jpg" aria-hidden="true">
+    <source src="/assets/video/connection-loop.mp4" type="video/mp4">
   </video>
   <p class="loop-caption">Impact happens in the connections.</p>
 </section>
@@ -100,26 +108,26 @@ permalink: index.html
     <div class="bento">
       <a class="tile tile-yellow span-6 tile-big" href="{{ root }}charities.html">
         <span class="tile-ring"></span>
-        <img class="tile-icon" src="{{ root }}assets/img/icons/lightbulb.svg" alt="" width="48" height="54">
+        <img class="tile-icon" src="/assets/img/icons/lightbulb.svg" alt="" width="48" height="54">
         <h3>Strategy and the critical-friend review</h3>
         <p>What to invest in next, what to stop, and the evidence for both. Findings rated, recommendations in order, decisions ready to minute.</p>
         <span class="arrow-link">Read more</span>
       </a>
       <a class="tile tile-outline span-6" href="{{ root }}charities.html">
-        <img class="tile-icon" src="{{ root }}assets/img/icons/impact.svg" alt="" width="48" height="48">
+        <img class="tile-icon" src="/assets/img/icons/impact.svg" alt="" width="48" height="48">
         <h3>Theory of Change and impact</h3>
         <p>From what you do to what changes, in a form funders, trustees and the new SORP can use.</p>
         <span class="arrow-link">Read more</span>
       </a>
       <a class="tile tile-outline span-6" href="{{ root }}charities.html">
-        <img class="tile-icon" src="{{ root }}assets/img/icons/pound.svg" alt="" width="48" height="48">
+        <img class="tile-icon" src="/assets/img/icons/pound.svg" alt="" width="48" height="48">
         <h3>Income, fundraising and partnerships</h3>
         <p>Costed income strategies, cases for support, and corporate relationships worth more than a cheque.</p>
         <span class="arrow-link">Read more</span>
       </a>
       <a class="tile tile-white span-6" href="{{ root }}companies.html">
         <span class="tile-ring" style="border-color:rgba(254,219,0,.7)"></span>
-        <img class="tile-icon" src="{{ root }}assets/img/icons/people.svg" alt="" width="48" height="48">
+        <img class="tile-icon" src="/assets/img/icons/people.svg" alt="" width="48" height="48">
         <h3>Social value for business</h3>
         <p>Choosing, measuring and reporting the social value in how you buy, give, employ and operate.</p>
         <span class="arrow-link">Read more</span>

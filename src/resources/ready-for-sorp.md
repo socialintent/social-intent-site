@@ -12,8 +12,8 @@ payhipId: ""
 summary: What the Charities SORP 2026 asks you to say about impact, by tier,
   with paragraph references. What to measure, what to say, what not to claim,
   two worksheets and a readiness checklist for your next trustee meeting.
-seoTitle: "Charities SORP 2026 impact reporting guide for trustees"
-seoDescription: "An 11-page PDF guide to what the Charities SORP 2026 asks trustees to say about impact, by income tier, with paragraph references, worksheets and a readiness checklist."
+seoTitle: "Charities SORP 2026 impact reporting guide"
+seoDescription: "An 11-page PDF guide to what the Charities SORP 2026 asks trustees to say about impact, by income tier, with worksheets and a readiness checklist."
 lead: "From 2026 the trustees' annual report asks what difference the charity made, not just what it did. This guide shows what that means for your tier and how to be ready."
 inside:
   - "What the SORP 2026 requires on achievements and impact for Tier 1, Tier 2 and Tier 3 charities, with paragraph references"

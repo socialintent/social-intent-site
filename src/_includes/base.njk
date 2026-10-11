@@ -12,7 +12,7 @@
 <meta name="google-site-verification" content="DcTTHm7UbmPBXf8R1H7MH9ZywmlhRRmiCQgvxpGNLyo" />
 {% if noindex or (bodyClass == "amp-page" and not site.ampersand.listed) %}<meta name="robots" content="noindex, nofollow">{% else %}<meta name="robots" content="index, follow, max-image-preview:large">{% endif %}
 <link rel="canonical" href="{{ site.url }}{{ canonPath }}">
-<link rel="icon" href="{{ root }}assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <meta property="og:title" content="{{ seoTitleText | trim }}">
 <meta property="og:description" content="{{ seoDesc }}">
 <meta property="og:type" content="{% if page.url.indexOf('/insights/') == 0 or page.url.indexOf('/work/') == 0 %}article{% else %}website{% endif %}">
@@ -28,11 +28,10 @@
 <meta name="twitter:description" content="{{ seoDesc }}">
 <meta name="twitter:image" content="{{ ogImage }}">
 <meta name="theme-color" content="#000000">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Source+Sans+3:wght@400;600;700&family=Sacramento&display=swap">
-{% if sora or site.ampersand.listed or preview %}<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap">{% endif %}
-<link rel="stylesheet" href="{{ root }}assets/css/site.css">
+<link rel="preload" href="/assets/fonts/josefin-sans-latin-f9896b.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/source-sans-3-latin-44fe08.woff2" as="font" type="font/woff2" crossorigin>
+{% if sora or site.ampersand.listed or preview %}<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap">{% endif %}
+<link rel="stylesheet" href="/assets/css/site.css">
 {# Structured data: the organisation and website on every page, plus article or person data where it applies #}
 {% set orgId = site.url + "/#organization" %}
 {% set personId = site.url + "/about#matthew-hickey" %}
@@ -52,6 +51,12 @@
   "founder": { "@id": personId },
   "address": { "@type": "PostalAddress", "streetAddress": "Unit 32, Llys Edmund Prys, St Asaph Business Park", "addressLocality": "St Asaph", "postalCode": "LL17 0JA", "addressCountry": "GB" },
   "areaServed": { "@type": "Country", "name": "United Kingdom" },
+  "hasOfferCatalog": { "@type": "OfferCatalog", "name": "Social Intent services", "itemListElement": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Charity strategic review and Theory of Change", "audience": { "@type": "Audience", "audienceType": "Charities and foundations" } } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Impact measurement and reporting", "audience": { "@type": "Audience", "audienceType": "Charities and foundations" } } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Income strategy and trading structures", "audience": { "@type": "Audience", "audienceType": "Charities and foundations" } } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social value strategy and charity partnerships", "audience": { "@type": "Audience", "audienceType": "Companies" } } }
+  ] },
   "vatID": "GB458445168",
   "identifier": { "@type": "PropertyValue", "propertyID": "Companies House number", "value": site.companyNumber },
   "knowsAbout": ["Charity strategy", "Theory of Change", "Impact measurement", "Social value", "Charity trading subsidiaries", "Charities SORP", "Corporate and charity partnerships", "Fundraising and income strategy"],
@@ -68,8 +73,9 @@
   "jobTitle": "Founder",
   "description": "Founder of Social Intent, with thirty years in and around charities as a chief executive, marketing director, fundraiser, trustee and adviser.",
   "worksFor": { "@id": orgId },
-  "knowsAbout": ["Charity strategy", "Impact measurement", "Social value", "Fundraising"],
-  "sameAs": [site.linkedin]
+  "knowsAbout": ["Charity strategy", "Theory of Change", "Impact measurement", "Charities SORP", "Social value", "Charity partnerships", "Fundraising"],
+  "alumniOf": [{ "@type": "CollegeOrUniversity", "name": "Manchester Metropolitan University" }, { "@type": "CollegeOrUniversity", "name": "Loughborough University" }],
+  "sameAs": ([site.founderLinkedin, site.linkedin] if site.founderLinkedin else [site.linkedin])
 } %}
 {% set graph = [orgNode, siteNode, personNode] %}
 {% if page.url.indexOf('/insights/') == 0 or page.url.indexOf('/work/') == 0 %}
@@ -102,7 +108,7 @@
 <header class="site-header" data-header>
   <div class="wrap header-row">
     <a class="brand" href="{{ root }}index.html" aria-label="Social Intent home">
-      <img src="{{ root }}assets/img/si-logo-landscape-white-yellow.svg" alt="Social Intent" width="620" height="55">
+      <img src="/assets/img/si-logo-landscape-white-yellow.svg" alt="Social Intent" width="620" height="55">
     </a>
     <nav id="site-nav" class="site-nav" aria-label="Main">
       <ul>
@@ -136,7 +142,7 @@
     </div>
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="{{ root }}assets/img/si-logo-landscape-white-yellow.svg" alt="Social Intent" width="310" height="28">
+        <img src="/assets/img/si-logo-landscape-white-yellow.svg" alt="Social Intent" width="310" height="28">
         <p class="handwritten footer-tagline">{{ site.tagline }}</p>
       </div>
       <div class="footer-col">
@@ -161,6 +167,6 @@
     </div>
   </div>
 </footer>
-<script src="{{ root }}assets/js/site.js" defer></script>
+<script src="/assets/js/site.js" defer></script>
 </body>
 </html>

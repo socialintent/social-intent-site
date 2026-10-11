@@ -113,7 +113,8 @@ collections:
           - { label: Phone (as shown), name: phone, widget: string }
           - { label: Phone for tap-to-call, name: phoneHref, widget: string, hint: "International form with no spaces, e.g. +441618705544" }
           - { label: Calendly link, name: calendly, widget: string }
-          - { label: LinkedIn, name: linkedin, widget: string }
+          - { label: LinkedIn (company page), name: linkedin, widget: string }
+          - { label: Matthew's personal LinkedIn, name: founderLinkedin, widget: string, required: false, hint: "Full address, e.g. https://www.linkedin.com/in/yourname/. Helps Google and AI tools tie you to the company." }
           - { label: Instagram, name: instagram, widget: string }
           - label: Postal address
             name: address

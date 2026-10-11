@@ -10,6 +10,7 @@ layout: base.njk
 <article class="block">
   <div class="wrap article-grid">
     <div class="prose">
+      <p class="byline">By <a href="/about">{{ site.founder }}</a> · <time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time></p>
       {{ content | safe }}
     </div>
     <aside class="aside">
