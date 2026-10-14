@@ -271,8 +271,8 @@ p { margin: 0 0 1em; }
 .tile-big h3 { font-size: var(--t-2); }
 .tile-big .tile-num { font-family: var(--font-display); font-weight: 700; font-size: clamp(3.5rem, 7vw, 6rem); line-height: .9; color: var(--yellow); letter-spacing: -0.03em; }
 .tile-yellow .tile-num { color: var(--black); }
-@media (max-width: 900px) { .span-4, .span-5, .span-6, .span-7, .span-8 { grid-column: span 6; } }
-@media (max-width: 600px) { .span-4, .span-5, .span-6, .span-7, .span-8 { grid-column: span 12; } .tile { min-height: 0; } }
+@media (max-width: 900px) { .span-4, .span-5, .span-6, .span-7, .span-8, .span-12 { grid-column: span 6; } }
+@media (max-width: 600px) { .span-4, .span-5, .span-6, .span-7, .span-8, .span-12 { grid-column: span 12; } .tile { min-height: 0; } }
 
 /* Method (six steps) ---------------------------------------------------------- */
 .method { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1rem; counter-reset: step; }
