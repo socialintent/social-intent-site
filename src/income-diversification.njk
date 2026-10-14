@@ -136,7 +136,7 @@ faq:
 
 <section class="block on-soft" id="quiz">
   <div class="wrap">
-    <div class="head"><h2>Is your charity ready to explore earned income?</h2><p>Ten statements. Score each: Yes (2), Partly (1) or No (0). Be hard on yourself; the result is only useful if it is honest.</p></div>
+    <div class="head"><h2>Is your charity ready to explore earned income?</h2><p>Ten statements, two minutes, no sign-up. Score each: Yes (2), Partly (1) or No (0). Be hard on yourself; the result is only useful if it is honest.</p></div>
     <form class="quiz" id="readiness-quiz" onsubmit="return false">
       {% set qs = [
         "We have at least one service, skill, product or asset that people outside our beneficiaries value.",
@@ -159,13 +159,34 @@ faq:
       </fieldset>
       {% endfor %}
       <p class="quiz-progress" id="quiz-progress" aria-live="polite">Answer all ten to see your result.</p>
-      <div class="quiz-result" id="quiz-result" hidden aria-live="polite">
-        <p class="quiz-score"><strong id="quiz-total">0</strong> out of 20</p>
-        <h3 id="quiz-title"></h3>
-        <p id="quiz-text"></p>
-        <p><a class="btn btn-black" href="{{ site.calendly }}" rel="noopener" id="quiz-cta">Book a free 30-minute call</a></p>
-      </div>
     </form>
+
+    <div class="quiz-result" id="quiz-result" hidden aria-live="polite">
+      <p class="quiz-score"><strong id="quiz-total">0</strong> out of 20</p>
+      <h3 id="quiz-title"></h3>
+      <p id="quiz-text"></p>
+      <p><a class="btn btn-yellow" href="{{ site.calendly }}" rel="noopener">Book a free 30-minute call</a></p>
+
+      <div class="quiz-capture" id="quiz-capture">
+        <h4>Want us to follow up on your result?</h4>
+        <p>Leave your details and we will send you a short note on what your score means for your charity, and what we would look at first.</p>
+        <form class="form" id="quiz-capture-form" name="quiz-result" method="POST" action="/" data-netlify="true" netlify-honeypot="company-website">
+          <input type="hidden" name="form-name" value="quiz-result">
+          <input type="hidden" name="score" id="qc-score" value="">
+          <input type="hidden" name="band" id="qc-band" value="">
+          <p class="sr-only"><label>Leave this empty <input name="company-website" tabindex="-1" autocomplete="off"></label></p>
+          <div><label for="qc-name">Your name</label><input id="qc-name" name="name" type="text" autocomplete="name" required></div>
+          <div><label for="qc-email">Email</label><input id="qc-email" name="email" type="email" autocomplete="email" required></div>
+          <div><label for="qc-org">Organisation <span class="hint-inline">(optional)</span></label><input id="qc-org" name="organisation" type="text" autocomplete="organization"></div>
+          <div><label for="qc-role">Your position <span class="hint-inline">(optional)</span></label><input id="qc-role" name="position" type="text" autocomplete="organization-title"></div>
+          <div class="check"><label class="check-label"><input type="checkbox" name="updates" value="yes"> Also send me occasional news about charity strategy, impact and income. I can unsubscribe at any time.</label></div>
+          <p class="hint">We use your details to follow up on your result. See our <a href="/privacy">privacy notice</a>.</p>
+          <div><button class="btn btn-yellow" type="submit">Send me my follow-up</button></div>
+          <p class="quiz-error" id="quiz-error" role="alert" hidden>Sorry, that did not send. Please try again, or email {{ site.email }}.</p>
+        </form>
+        <p class="quiz-thanks" id="quiz-thanks" role="status" hidden>Thank you. We will be in touch about your result. If you would rather not wait, <a href="{{ site.calendly }}" rel="noopener">book a call now</a>.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -185,9 +206,9 @@ faq:
   var form = document.getElementById('readiness-quiz');
   if (!form) return;
   var bands = [
-    { min: 14, title: "You look well placed to explore enterprise", text: "An Income Opportunity Review would help you identify and test the strongest options, and give your Board a clear decision." },
-    { min: 8, title: "Some foundations are there", text: "A review, or a short conversation, would help clarify whether now is the right time and where to start." },
-    { min: 0, title: "Enterprise may not be the right focus just now", text: "A conversation about your fundraising strategy may be more useful: do you have one, what is in it, is there a case for support, and are you covering every strand?" }
+    { min: 14, key: "ready", title: "You look well placed to explore enterprise", text: "An Income Opportunity Review would help you identify and test the strongest options, and give your Board a clear decision." },
+    { min: 8, key: "foundations", title: "Some foundations are there", text: "A review, or a short conversation, would help clarify whether now is the right time and where to start." },
+    { min: 0, key: "not-yet", title: "Enterprise may not be the right focus just now", text: "A conversation about your fundraising strategy may be more useful: do you have one, what is in it, is there a case for support, and are you covering every strand?" }
   ];
   function update() {
     var total = 0, answered = 0;
@@ -201,9 +222,23 @@ faq:
     document.getElementById('quiz-total').textContent = total;
     document.getElementById('quiz-title').textContent = b.title;
     document.getElementById('quiz-text').textContent = b.text;
+    document.getElementById('qc-score').value = total;
+    document.getElementById('qc-band').value = b.key;
     prog.hidden = true; res.hidden = false;
   }
   form.addEventListener('change', update);
+
+  var cap = document.getElementById('quiz-capture-form');
+  if (cap) cap.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var fd = new FormData(cap), parts = [];
+    if (fd.get('company-website')) return;
+    fd.forEach(function (v, k) { parts.push(encodeURIComponent(k) + '=' + encodeURIComponent(v)); });
+    document.getElementById('quiz-error').hidden = true;
+    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: parts.join('&') })
+      .then(function (r) { if (!r.ok) throw new Error('bad'); cap.hidden = true; document.querySelector('.quiz-capture > p').hidden = true; document.getElementById('quiz-thanks').hidden = false; })
+      .catch(function () { document.getElementById('quiz-error').hidden = false; });
+  });
 })();
 </script>
 
