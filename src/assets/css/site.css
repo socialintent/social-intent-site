@@ -592,3 +592,20 @@ body:has(.cta-band) .site-footer { padding-top: clamp(2.5rem, 5vw, 4rem); }
 
 .byline { font-family: var(--font-display); font-weight: 600; font-size: .95rem; color: var(--grey); margin: 0 0 1.4rem; }
 .byline a { color: inherit; }
+
+/* Readiness quiz */
+.quiz { max-width: 52rem; }
+.quiz-q { border: 0; border-bottom: 1px solid var(--rule); margin: 0; padding: 1rem 0; display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; align-items: center; }
+.quiz-q legend { float: left; width: 100%; padding: 0; margin-bottom: .5rem; font-weight: 600; font-size: 1.08rem; }
+.quiz-q legend span { display: inline-block; min-width: 1.8rem; font-family: var(--font-display); font-weight: 700; }
+.quiz-q label { display: inline-flex; align-items: center; gap: .45rem; cursor: pointer; font-size: 1.02rem; }
+.quiz-q input { accent-color: var(--black); width: 1.15rem; height: 1.15rem; }
+.quiz-progress { margin: 1.2rem 0 0; color: var(--grey); }
+.quiz-result { margin-top: 1.5rem; padding: 1.6rem; background: var(--black); color: var(--paper); border-radius: var(--radius); }
+.quiz-result h3 { color: var(--yellow); margin: .2em 0 .4em; }
+.quiz-result .btn { margin-top: .4rem; }
+.quiz-score { font-family: var(--font-display); font-size: 1.1rem; margin: 0; }
+.quiz-score strong { font-size: 2.6rem; color: var(--paper); }
+.grid.g4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 900px) { .grid.g4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .grid.g4 { grid-template-columns: minmax(0, 1fr); } }

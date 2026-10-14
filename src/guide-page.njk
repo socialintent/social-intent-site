@@ -43,6 +43,9 @@ eleventyComputed:
       <h2>Or get it free</h2>
       <p>Book a free 30-minute call and we will send you this guide afterwards.</p>
       <p><a class="btn btn-ghost btn-small" href="{{ site.calendly }}" rel="noopener">Book a call</a></p>
+      {% if g.data.for == "charities" %}<h2>Weighing earned income?</h2>
+      <p>Our fixed-price review tests whether it is realistic for your charity.</p>
+      <p><a class="arrow-link" href="{{ root }}income-diversification.html">Income Opportunity Review</a></p>{% endif %}
       <h2>More guides</h2>
       <ul>
         {% for o in collections.guidesLive %}{% if o.url != g.url %}<li><a class="arrow-link" href="{{ root }}guides/{{ o.fileSlug }}.html">{{ o.data.title }}</a></li>{% endif %}{% endfor %}
