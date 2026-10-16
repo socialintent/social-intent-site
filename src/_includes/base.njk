@@ -160,7 +160,7 @@
       </div>
       <div class="footer-col footer-legal">
         <h2 class="footer-h">Social Intent Limited</h2>
-        <p>{% for line in site.address %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>
+        <p>Registered office:<br>{% for line in site.address %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>
         <p>Registered in England and Wales, company number {{ site.companyNumber }}. VAT number {{ site.vatNumber }}.</p>
         <p><a href="{{ root }}privacy.html">Privacy</a> · <a href="{{ root }}terms.html">Terms</a> · © {{ buildYear }} Social Intent Limited</p>
       </div>

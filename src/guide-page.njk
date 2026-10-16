@@ -29,7 +29,7 @@ eleventyComputed:
       <h2>Who it is for</h2>
       <p>{{ g.data.whoFor }}</p>
       <h2>What you get</h2>
-      <p>A {{ g.data.pages }}-page PDF you can read on screen or print, delivered as an instant download after purchase. Every finding is labelled as evidence, our interpretation or a decision for your board, so you can see what is fact and what is judgement.</p>
+      <p>{% if g.data.pages == 8 or g.data.pages == 11 or g.data.pages == 18 %}An{% else %}A{% endif %} {{ g.data.pages }}-page PDF you can read on screen or print, delivered as an instant download after purchase. Every finding is labelled as evidence, our interpretation or a decision for your board, so you can see what is fact and what is judgement.</p>
       <h2>Questions this guide answers</h2>
       <div class="qa-list">
         {% for item in g.data.qa %}<div class="qa"><h3>{{ item.q }}</h3><p>{{ item.a }}</p></div>{% endfor %}
@@ -50,7 +50,7 @@ eleventyComputed:
       <p><a class="arrow-link" href="{{ root }}income-diversification.html">Income Opportunity Review</a></p>{% endif %}
       <h2>More guides</h2>
       <ul>
-        {% for o in collections.guidesLive %}{% if o.url != g.url %}<li><a class="arrow-link" href="{{ root }}guides/{{ o.fileSlug }}.html">{{ o.data.title }}</a></li>{% endif %}{% endfor %}
+        {% for o in pagination.pages %}{% if o.fileSlug != g.fileSlug %}<li><a class="arrow-link" href="{{ root }}guides/{{ o.fileSlug }}.html">{{ o.data.title }}</a></li>{% endif %}{% endfor %}
       </ul>
     </aside>
   </div>

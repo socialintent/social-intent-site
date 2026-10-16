@@ -14,18 +14,6 @@
     });
   }
 
-  // Contact form: on Netlify the form posts for real. In a preview, show the thank-you panel instead.
-  var form = document.querySelector('form[data-netlify]');
-  if (form) {
-    var isPreview = /claude\.ai|claudeusercontent|localhost|127\.0\.0\.1/.test(location.hostname) || location.protocol === 'file:';
-    form.addEventListener('submit', function (e) {
-      if (!isPreview) return;
-      e.preventDefault();
-      var panel = document.getElementById('form-preview-note');
-      if (panel) { panel.hidden = false; panel.focus(); }
-    });
-  }
-
   // Self-hosted video: show the sound button only once a file has actually loaded; restart with sound on click.
   document.querySelectorAll('.video').forEach(function (fig) {
     var v = fig.querySelector('video'), btn = fig.querySelector('[data-video-sound]');

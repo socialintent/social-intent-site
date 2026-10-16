@@ -34,7 +34,6 @@ permalink: contact.html
         </div>
         <div><label for="message">What are you working on?</label><textarea id="message" name="message" required></textarea><p class="hint">A couple of lines is plenty. We reply within two working days.</p></div>
         <div><button class="btn btn-yellow" type="submit">Send message</button></div>
-        <p id="form-preview-note" class="note" hidden tabindex="-1">This is a preview, so nothing was sent. On the live site this message lands in the Social Intent inbox.</p>
       </form>
     </div>
     <div class="contact-panel">
@@ -43,8 +42,8 @@ permalink: contact.html
       <p><a href="tel:{{ site.phoneHref }}">{{ site.phone }}</a></p>
       <p><a href="{{ site.linkedin }}" rel="noopener">Social Intent on LinkedIn</a></p>
       <h3 style="margin-top:2rem;color:var(--paper)">Where we are</h3>
-      <p>{% for line in site.address %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>
-      <p>We're based on the Llŷn Peninsula in North Wales and work across the UK: on site, remote, or a mix of the two.</p>
+      <p>Registered office:<br>{% for line in site.address %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>
+      <p>Matthew works from the Llŷn Peninsula in North Wales, and we work across the UK: on site, remote, or a mix of the two.</p>
     </div>
   </div>
 </section>
